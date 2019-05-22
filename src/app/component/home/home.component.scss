@@ -1,0 +1,163 @@
+.text-dark-max {
+  color: black !important;
+}
+.bg-dark-max {
+  background-color: black !important;
+}
+.caption-position {
+  top: 300pt;
+  left: 80pt;
+}
+
+.size-img {
+  height: 100%;
+  width: 100%;
+}
+.mobile{
+  display:none;
+}
+@media only screen and (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+  .image{
+    width: 160px !important;
+    height: 200px !important
+  }
+  .disc{
+    white-space: pre-wrap;
+    margin: 0 auto !important;
+  }
+}
+
+.box {
+  position: relative;
+  display: inline-block; /* Make the width of box same as image */
+}
+.box .text {
+  position: absolute;
+  z-index: 999;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 50%; /* Adjust this value to move the positioned div up and down */
+  font-family: Arial, sans-serif;
+  color: #000000;
+  height: 20%;
+  width: 80%; /* Set the width of the positioned div */
+}
+.hover:hover {
+  background-color: pink !important;
+}
+
+h3 {
+  font: 20px sans-serif;
+  margin-top: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3.background {
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    border-top: 2px solid #dfdfdf;
+    content: "";
+    margin: 0 auto; /* this centers the line to the full width specified */
+    position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 95%;
+    z-index: -1;
+  }
+
+  span {
+    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+    background: rgb(255, 241, 244);
+    padding: 0 15px;
+  }
+}
+
+h3.double:before {
+  /* this is just to undo the :before styling from above */
+  border-top: none;
+}
+
+h3.double:after {
+  border-bottom: 1px solid rgb(184, 181, 181);
+  /* -webkit-box-shadow: 0 1px 0 0 red;
+  -moz-box-shadow: 0 1px 0 0 red;
+  box-shadow: 0 1px 0 0 red; */
+  content: "";
+  margin: 0 auto; /* this centers the line to the full width specified */
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.shop {
+  background-image: url("../../../assets/background/Banner-2.jpg");
+  height: 45vh;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: 50%;
+}
+.btn-dark {
+  background-color: black !important;
+  border: none;
+}
+h2,
+p {
+  color: black !important;
+}
+.group {
+  margin-top: 15%;
+}
+
+/* =======SLIDE=======. */
+drag-scroll {
+  height: 100%;
+  width: 100%;
+}
+.image {
+  margin: auto;
+  padding: auto;
+  height: 352px;
+  width: 263px;
+}
+.image-inner {
+  margin-right: 15pt;
+}
+.disc {
+  color: black !important;
+  font-size: 9pt;
+}
+.price {
+  text-align: center;
+  font-size: 9pt;
+}
+
+.hover {
+  display: none;
+}
+
+.parent:hover {
+  .hover {
+    display: block;
+  }
+}
+.hover:hover {
+  background-color: white !important;
+  color: black !important;
+}
+//=======FOLLOW=======
+.link-to-info{
+  margin-right: 15pt;
+}

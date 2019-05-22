@@ -6,17 +6,28 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
-
+import { HeaderComponent } from './layouts/header/header.component';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { DragScrollModule } from 'ngx-drag-scroll';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    HeaderComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgImageSliderModule,
+    DragScrollModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
