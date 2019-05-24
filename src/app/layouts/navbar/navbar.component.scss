@@ -13,6 +13,13 @@
     padding-top: 0pt !important;
     padding-bottom: 0pt !important;
   }
+  .mobile-device {
+    display: none !important;
+  }
+  .brand{
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+  }
 }
 @media only screen and (max-width: 768px) {
   .fixed-top-custom {
@@ -22,7 +29,13 @@
     left: 0;
     z-index: 1030;
   }
-  .ripe-malinka-gradient {
-    background-color: white !important;
+  .brand{
+    margin-top: 70pt;
   }
+
+}
+select {
+  border: none;
+  background: none;
+  font-size: 10pt;
 }
