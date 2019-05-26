@@ -1,10 +1,5 @@
 /* Responsive */
 @media only screen and (min-width: 768px) {
-  .parent:hover {
-    .hover {
-      display: block;
-    }
-  }
   
 }
 @media only screen and (max-width: 768px) {
@@ -30,23 +25,6 @@
     white-space: pre-wrap;
     margin: 0 auto !important;
   }
-  .group {
-    margin-top: 60pt !important;
-  }
-  .text-mobile-big {
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-    font-weight: 150;
-  }
-  .text-mobile-normal,
-  .text-mobile-big {
-    font-size: 13pt;
-  }
-  .btn-mobile {
-    font-size: 10pt;
-    padding: 0pt;
-    width: 30%;
-    height: 10%;
-  }
   .double {
     font-weight: bold;
     font-family: "Times New Roman";
@@ -65,7 +43,7 @@
     font-size: 0pt;
   }
 }
-/* =================== */
+/* ========== ./Responive ========= */
 .text-dark-max {
   color: black !important;
 }
