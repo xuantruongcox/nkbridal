@@ -1,3 +1,10 @@
+<div class="container">
+  <div class="row my-4">
+    <div class="col-12 text-center">
+      <img src="../../../assets/brand/Asset 1@4x.png" width="320pt" height="100pt" alt="">
+    </div>
+  </div>
+</div>
 <div class="container flex-center my-5">
   <div class="box w-100 w-md-50">
     <div class="card">
@@ -10,16 +17,17 @@
       <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form class="text-center" style="color: #757575;">
+        <div  (keyup.enter)="login()" class="text-center" style="color: #757575;">
 
           <!-- Password -->
           <div class="md-form">
-            <input type="password" id="materialLoginFormPassword" placeholder="Password" class="form-control" style="border: none;">
+            <input [(ngModel)]="inputPWD" type="password" id="materialLoginFormPassword" placeholder="Password" class="form-control"
+              style="border: none;">
           </div>
           <!-- Sign in button -->
-          <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign
+          <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" (click)="login()" type="butotn">Sign
             in</button>
-        </form>
+        </div>
         <!-- Form -->
       </div>
     </div>

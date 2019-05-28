@@ -18,9 +18,9 @@
             alt="First slide">
         </div>
         <div class="carousel-caption">
-          <div class="parent-caption">
-            <h1 class="h1-responsive font-weight-bold">THE DREAMY BRIDESMAID</h1>
-            <p class="h4 font-weight-light">we help you to create the dream squad</p>
+          <div class="parent-caption black">
+            <h1 class="h1-responsive font-weight-bold">EXPLORE OUR UNLIMITED FORMAL COLLECTION</h1>
+            <p class="h4 font-weight-light">We can create whatever your heart desire</p>
             <a [routerLink]="['/collections/prom-formal-dress']" class="btn btn-md btn-black">shop formal now</a>
           </div>
         </div>
@@ -33,10 +33,10 @@
             alt="Second slide">
         </div>
         <div class="carousel-caption">
-          <div class="parent-caption">
-            <h1 class="h1-responsive font-weight-bold">THE DREAMY BRIDESMAID</h1>
-            <p class="h4 font-weight-light">we help you to create the dream squad</p>
-            <a href="" class="btn btn-md btn-black">shop bridesmaids dresses</a>
+          <div class="parent-caption black">
+            <h1 class="h1-responsive font-weight-bold">UNIQUE AND EXQUISITE DESIGNS</h1>
+            <p class="h4 font-weight-light">real customers, real photos, realstories</p>
+            <a class="btn btn-md btn-black" [routerLink]="['/collections/wedding-dresses']">shop wedding dresses</a>
           </div>
         </div>
       </div>
@@ -48,10 +48,10 @@
             alt="Third slide">
         </div>
         <div class="carousel-caption">
-          <div class="parent-caption">
+          <div class="parent-caption black">
             <h1 class="h1-responsive font-weight-bold">THE DREAMY BRIDESMAID</h1>
             <p class="h4 font-weight-light">we help you to create the dream squad</p>
-            <a href="" class="btn btn-md btn-black">shop bridesmaids dresses</a>
+            <a [routerLink]="['/collections/prom-formal-dress']" class="btn btn-md btn-black">shop bridesmaids dresses</a>
           </div>
         </div>
       </div>
@@ -73,7 +73,24 @@
 </section>
 <!--  -->
 <section class="section-style mt-4">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let list of lists" class="col-md-4 col-12 p-2 p-md-0">
+        <div class="link-parent text-center flex-center position-relative">
+          <div class="position-absolute blank w-100 h-100"></div>
+          <p class="h2-responsive">{{list.title}}</p>
+          <a class="h4-responsive position-absolute">Shop now</a>
+          <img class="img-fluid rounded" [src]="list.img" alt="">
+        </div>
+      </div>
+      <div class="col-md-">
 
+      </div>
+      <div class="col-md-">
+
+      </div>
+    </div>
+  </div>
 </section>
 <!--  -->
 <section class="section-quotes">

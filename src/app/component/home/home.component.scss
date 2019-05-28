@@ -1,9 +1,34 @@
 /* Responsive */
 @media only screen and (min-width: 768px) {
-  
+  .link-parent {
+    cursor: default;
+    p {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+    }
+    a {
+      display: none;
+      color: black;
+      bottom: 100px !important;
+    }
+  }
 }
 @media only screen and (max-width: 768px) {
-  .carousel-caption{
+  .link-parent {
+    cursor: default;
+    p {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+    }
+    a {
+      display: none;
+      color: white;
+      bottom: 130px !important;
+    }
+  }
+  .carousel-caption {
     display: none;
   }
   .direct-mobile {
@@ -106,7 +131,7 @@ h3.background {
 
   span {
     /* to hide the lines from behind the text, you have to set the background color the same as the container */
-    background-color: rgb(213,240,247) !important;
+    background-color: rgb(213, 240, 247) !important;
     padding: 0 15px;
   }
 }
@@ -227,4 +252,34 @@ section {
 }
 .blue {
   background-color: rgb(90, 195, 221) !important;
+}
+
+.black {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.parent-caption {
+  p {
+    color: white !important;
+  }
+}
+.link-parent {
+  cursor: default;
+  p {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+  }
+  a {
+    display: none;
+    color: black;
+    bottom: 180px;
+  }
+}
+.link-parent:hover {
+  a {
+    display: block;
+  }
+  .blank {
+    background-color: rgba(255, 255, 255, 0.397);
+  }
 }

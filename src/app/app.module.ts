@@ -14,6 +14,8 @@ import { FooterComponent } from './component/footer/footer.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PromFormalDressComponent } from './collections/prom-formal-dress/prom-formal-dress.component';
 import { LoginComponent } from './component/login/login.component';
+import { WeddingDressesComponent } from './collections/wedding-dresses/wedding-dresses.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,12 +27,14 @@ import { LoginComponent } from './component/login/login.component';
     FooterComponent,
     PromFormalDressComponent,
     LoginComponent,
+    WeddingDressesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgImageSliderModule,
     DragScrollModule,
+    FormsModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],

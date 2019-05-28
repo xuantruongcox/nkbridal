@@ -5,12 +5,14 @@ import { HomeComponent } from './component/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
+import { WeddingDressesComponent } from './collections/wedding-dresses/wedding-dresses.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'', redirectTo: 'login', pathMatch:'full'},
   {path:'about-us', component:AboutUsComponent},
   {path:'contact-us', component:ContactUsComponent},
+  {path:'collections/wedding-dresses', component: WeddingDressesComponent},
   {path:'collections/prom-formal-dress', component: PromFormalDressComponent},
   {path:'login', component: LoginComponent}
 ];
