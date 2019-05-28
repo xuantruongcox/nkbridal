@@ -1,0 +1,41 @@
+@media only screen and(min-width: 768px) {
+  .model-parent {
+    .img-model {
+      height: 150%;
+      width: 100%;
+      margin: auto;
+    }
+    a {
+      top: 250px;
+      display: none;
+    }
+  }
+  .model-parent:hover {
+    a {
+      display: block;
+    }
+  }
+  .custom-select {
+    width: auto;
+  }
+}
+@media only screen and(max-width: 768px) {
+  .custom-select {
+    width: auto;
+  }
+  .model-parent {
+    .img-model {
+      height: 400px;
+      width: 280px;
+    }
+    a {
+      top: 300px;
+      display: none;
+    }
+  }
+  .model-parent:hover {
+    a {
+      display: block;
+    }
+  }
+}

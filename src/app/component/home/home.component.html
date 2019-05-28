@@ -1,3 +1,6 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
 <section class="section-model mt-md-3" style="margin-top: 20pt;">
   <div class="mobile text-center mb-3">
     <img [routerLink]="['/home']" src="../../../assets/brand/61202805_433407974137945_1814405193278685184_n.png"
@@ -18,7 +21,7 @@
           <div class="parent-caption">
             <h1 class="h1-responsive font-weight-bold">THE DREAMY BRIDESMAID</h1>
             <p class="h4 font-weight-light">we help you to create the dream squad</p>
-            <a href="" class="btn btn-md btn-black">shop bridesmaids dresses</a>
+            <a [routerLink]="['/collections/prom-formal-dress']" class="btn btn-md btn-black">shop formal now</a>
           </div>
         </div>
       </div>
@@ -30,9 +33,11 @@
             alt="Second slide">
         </div>
         <div class="carousel-caption">
-          <h2 class="h2-responsive font-weight-bold">THE DREAMY BRIDESMAID</h2>
-          <p>we help you to create the dream squad</p>
-          <a href="" class="btn btn-black">shop bridesmaids dresses</a>
+          <div class="parent-caption">
+            <h1 class="h1-responsive font-weight-bold">THE DREAMY BRIDESMAID</h1>
+            <p class="h4 font-weight-light">we help you to create the dream squad</p>
+            <a href="" class="btn btn-md btn-black">shop bridesmaids dresses</a>
+          </div>
         </div>
       </div>
       <div class="carousel-item">
@@ -43,9 +48,11 @@
             alt="Third slide">
         </div>
         <div class="carousel-caption">
-          <h2 class="h2-responsive font-weight-bold">THE DREAMY BRIDESMAID</h2>
-          <p>we help you to create the dream squad</p>
-          <a href="" class="btn btn-black">shop bridesmaids dresses</a>
+          <div class="parent-caption">
+            <h1 class="h1-responsive font-weight-bold">THE DREAMY BRIDESMAID</h1>
+            <p class="h4 font-weight-light">we help you to create the dream squad</p>
+            <a href="" class="btn btn-md btn-black">shop bridesmaids dresses</a>
+          </div>
         </div>
       </div>
     </div>
@@ -118,7 +125,7 @@
                     <div class="card-body text-center">
                       <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
                       <p class="card-text">$699.00</p>
-                      <a class="btn pink btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
+                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
                     </div>
                   </div>
                 </div>
@@ -133,7 +140,7 @@
                     <div class="card-body text-center">
                       <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
                       <p class="card-text">$699.00</p>
-                      <a class="btn pink btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
+                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
                     </div>
                   </div>
                 </div>
@@ -148,7 +155,7 @@
                     <div class="card-body text-center">
                       <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
                       <p class="card-text">$699.00</p>
-                      <a class="btn pink btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
+                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
                     </div>
                   </div>
                 </div>
@@ -163,7 +170,7 @@
                     <div class="card-body text-center">
                       <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
                       <p class="card-text">$699.00</p>
-                      <a class="btn pink btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
+                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
                     </div>
                   </div>
                 </div>
@@ -178,7 +185,7 @@
                     <div class="card-body text-center">
                       <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
                       <p class="card-text">$699.00</p>
-                      <a class="btn pink btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
+                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
                     </div>
                   </div>
                 </div>
@@ -193,7 +200,7 @@
                     <div class="card-body text-center">
                       <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
                       <p class="card-text">$699.00</p>
-                      <a class="btn pink btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
+                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
                     </div>
                   </div>
                 </div>
@@ -230,9 +237,6 @@
       <div class="col-md-12 col-12" col-12>
         <p class="text-mobile-normal h4-responsive font-weight-light">Stand out as much as you can</p>
       </div>
-      <div class="col-md-12 col-12">
-        <button class="btn btn-mobile btn-md btn-dark text-light">Shop Now</button>
-      </div>
     </div>
   </div>
 </section>
@@ -249,27 +253,27 @@
           <div class="row">
             <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
               <img width="175px" height="218px"
+                src="https://scontent.cdninstagram.com/vp/8d984b5fb670cae2b61aa0af05ca91c7/5CEEF862/t51.2885-15/sh0.08/e35/s640x640/60086527_144962839965965_6192842220661975405_n.jpg?_nc_ht=scontent.cdninstagram.com"
+                alt="">
+            </div>
+            <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
+              <img width="175px" height="218px"
                 src="https://scontent.cdninstagram.com/vp/7c225e8d81aacb46b3353db2b9a76c95/5D7B31C3/t51.2885-15/sh0.08/e35/p640x640/56669844_109939000095747_8391294405297374331_n.jpg?_nc_ht=scontent.cdninstagram.com"
                 alt="">
             </div>
             <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
               <img width="175px" height="218px"
-                src="https://scontent.cdninstagram.com/vp/0d45ff08e284ad0dc2d6954f88abefd8/5CE8584F/t51.2885-15/sh0.08/e35/s640x640/60371189_454080452057049_3833243056040001566_n.jpg?_nc_ht=scontent.cdninstagram.com"
+                src="https://scontent.cdninstagram.com/vp/618ac5bc3d4488f088a83e20ede26df5/5CEEEFCF/t51.2885-15/sh0.08/e35/s640x640/60371189_454080452057049_3833243056040001566_n.jpg?_nc_ht=scontent.cdninstagram.com"
                 alt="">
             </div>
             <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
               <img width="175px" height="218px"
-                src="https://scontent.cdninstagram.com/vp/47f92478df71dcd268560e7fa90f4f7b/5CE836BE/t51.2885-15/sh0.08/e35/s640x640/58790383_283834479162649_7927177513333653670_n.jpg?_nc_ht=scontent.cdninstagram.com"
+                src="https://scontent.cdninstagram.com/vp/bc4b354525cf042883584125382da24a/5CEE257E/t51.2885-15/sh0.08/e35/s640x640/58790383_283834479162649_7927177513333653670_n.jpg?_nc_ht=scontent.cdninstagram.com"
                 alt="">
             </div>
             <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
               <img width="175px" height="218px"
                 src="https://scontent.cdninstagram.com/vp/594d3226d2acbda26a7fe933ac8f4e8b/5D9BCB87/t51.2885-15/sh0.08/e35/s640x640/58654837_309543333307093_8529465583733743904_n.jpg?_nc_ht=scontent.cdninstagram.com"
-                alt="">
-            </div>
-            <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
-              <img width="175px" height="218px"
-                src="https://scontent.cdninstagram.com/vp/dfde42e206265f73e11e7cc5f0832306/5CE7F525/t51.2885-15/sh0.08/e35/s640x640/59800085_155592975480064_451643743800272606_n.jpg?_nc_ht=scontent.cdninstagram.com"
                 alt="">
             </div>
           </div>

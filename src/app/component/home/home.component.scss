@@ -106,7 +106,7 @@ h3.background {
 
   span {
     /* to hide the lines from behind the text, you have to set the background color the same as the container */
-    background: rgb(255, 241, 244);
+    background-color: rgb(213,240,247) !important;
     padding: 0 15px;
   }
 }
@@ -224,4 +224,7 @@ section {
 }
 .btn-show:hover {
   display: block;
+}
+.blue {
+  background-color: rgb(90, 195, 221) !important;
 }
