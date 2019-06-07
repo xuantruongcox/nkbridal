@@ -1,0 +1,22 @@
+@media only screen and(min-width: 768px) {
+}
+
+.carousel-indicators {
+  position: static;
+  width: 24rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  .image-indicator {
+    margin-right: 10px;
+    height: 7rem;
+  }
+}
+.border-double {
+  border: double rgb(54, 82, 105) 10px;
+  border-radius: 15px;
+}
+
+.fixed {
+  height: 35rem;
+  width: 24rem;
+}

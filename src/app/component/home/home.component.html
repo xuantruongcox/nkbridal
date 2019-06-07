@@ -8,61 +8,32 @@
   </div>
 
   <!--Carousel Wrapper-->
-  <div id="carousel-example-2" class="carousel slide carousel-fade" data-interval=false data-ride="carousel">
+  <div id="carousel-ex" class="carousel slide carousel-fade" data-interval=false data-ride="carousel">
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
-      <div class="carousel-item active">
+      <div *ngFor="let sectionModel of sectionModels; let i = index" class="carousel-item"
+        [class.active]="i == 0 ? true : false">
         <div class="view">
-          <img class="d-block w-100"
-            src="https://cdn.shopify.com/s/files/1/0908/9320/files/formal_cover_1944x.jpg?v=1542300944"
-            alt="First slide">
+          <img class="d-block img-fluid" [src]="sectionModel.img" alt="First slide">
         </div>
         <div class="carousel-caption">
           <div class="parent-caption black">
-            <h1 class="h1-responsive font-weight-bold">EXPLORE OUR UNLIMITED FORMAL COLLECTION</h1>
-            <p class="h4 font-weight-light">We can create whatever your heart desire</p>
-            <a [routerLink]="['/collections/prom-formal-dress']" class="btn btn-md btn-black">shop formal now</a>
+            <h1 class="h1-responsive font-weight-bold">{{sectionModel.title}}</h1>
+            <p class="h4 font-weight-light">{{sectionModel.content}}</p>
+            <a routerLink="/collections/{{sectionModel.routeName}}"
+              class="btn btn-md text-light btn-black">{{sectionModel.nameBtn}}</a>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <!--Mask color-->
-        <div class="view">
-          <img class="d-block w-100"
-            src="https://cdn.shopify.com/s/files/1/0908/9320/files/bridal_cover_1944x.jpg?v=1542300394"
-            alt="Second slide">
-        </div>
-        <div class="carousel-caption">
-          <div class="parent-caption black">
-            <h1 class="h1-responsive font-weight-bold">UNIQUE AND EXQUISITE DESIGNS</h1>
-            <p class="h4 font-weight-light">real customers, real photos, realstories</p>
-            <a class="btn btn-md btn-black" [routerLink]="['/collections/wedding-dresses']">shop wedding dresses</a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <!--Mask color-->
-        <div class="view">
-          <img class="d-block w-100"
-            src="https://cdn.shopify.com/s/files/1/0908/9320/files/bridesmaids_cover_1944x.jpg?v=1542299966"
-            alt="Third slide">
-        </div>
-        <div class="carousel-caption">
-          <div class="parent-caption black">
-            <h1 class="h1-responsive font-weight-bold">THE DREAMY BRIDESMAID</h1>
-            <p class="h4 font-weight-light">we help you to create the dream squad</p>
-            <a [routerLink]="['/collections/prom-formal-dress']" class="btn btn-md btn-black">shop bridesmaids dresses</a>
-          </div>
-        </div>
-      </div>
+
     </div>
     <!--/.Slides-->
     <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carousel-ex" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carousel-ex" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -75,12 +46,12 @@
 <section class="section-style mt-4">
   <div class="container">
     <div class="row">
-      <div *ngFor="let list of lists" class="col-md-4 col-12 p-2 p-md-0">
-        <div class="link-parent text-center flex-center position-relative">
+      <div *ngFor="let sectionStyle of sectionStyles" class="col-md-4 col-12 overflow-hidden p-md-0">
+        <div class="link-parent text-center flex-center mx-2 my-2 my-md-0 position-relative">
           <div class="position-absolute blank w-100 h-100"></div>
-          <p class="h2-responsive">{{list.title}}</p>
-          <a class="h4-responsive position-absolute">Shop now</a>
-          <img class="img-fluid rounded" [src]="list.img" alt="">
+          <p class="h2-responsive">{{sectionStyle.title}}</p>
+          <a class="h4-responsive position-absolute" [routerLink]="sectionStyle.routeName">{{sectionStyle.nameBtn}}</a>
+          <img class="img-fluid rounded" [src]="sectionStyle.img" alt="">
         </div>
       </div>
       <div class="col-md-">
@@ -93,21 +64,23 @@
   </div>
 </section>
 <!--  -->
-<section class="section-quotes">
+<section class="section-welcome">
   <div class="container">
     <div class="row">
       <div class="col-12">
         <h3 class="background double"><span>Welcome</span></h3>
       </div>
       <div class="col-12 mt-4">
-        <div class="content text-center text-muted" style="font-size: 10pt">
-          We are the most unique custom-made business in Brisbane and Australia since we offer the widest range of
-          custom made formal and wedding dresses. You can either choose from our in-house collection or email us with
-          the dream dress you want. We can make it fit perfectly for you. We also get inspirations from haute couture
-          collections and celebrities' dresses around the world and convert these ideas into your dream dress. We are
-          available for video chat for customers outside Brisbane, Australia for face to face consultation and measuring
-          sessions. Almost all of the styles featured in our website are real dresses worn by our real customers for
-          their formal and wedding so you can see how well our dresses fit.
+        <div class="content text-center text-muted" style="font-size: 13pt">
+          Welcome to NK Bridal Australia by Nancy K
+
+          We are proudly local owned and operated, specializing in custom made dresses in Brisbane, Australia.
+
+          We offer the largest range of custom made formal dresses, wedding gowns, and mother of the bride/groom dresses
+          from affordable to luxury.
+
+          You can either show us your idea or chose one of our instore dress, we will make your dream dress become
+          reality, fit your perfectly and won’t break your budget.
         </div>
       </div>
     </div>
@@ -119,184 +92,86 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h3 class="background double"><span>Featured collection</span></h3>
+        <h3 class="background double "><span>Featured collection</span></h3>
       </div>
 
       <div class="col-12">
-        <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-interval=false
-          data-ride="carousel">
-
-          <!--Controls-->
-
-          <!--/.Controls-->
-
-          <div class="container">
-            <div class="carousel-inner v-2" role="listbox">
-              <!-- 1 -->
-              <div class="carousel-item active">
-                <div class="col-12 col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top"
-                      src="https://cdn.shopify.com/s/files/1/0908/9320/products/PA260682_360x.jpg?v=1555312100"
-                      alt="Card image cap">
-                    <div class="card-body text-center">
-                      <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
-                      <p class="card-text">$699.00</p>
-                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 2 -->
-              <div class="carousel-item">
-                <div class="col-12 col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top"
-                      src="https://cdn.shopify.com/s/files/1/0908/9320/products/Alex-foote-PA140371_1_360x.jpg?v=1542875338"
-                      alt="Card image cap">
-                    <div class="card-body text-center">
-                      <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
-                      <p class="card-text">$699.00</p>
-                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 3 -->
-              <div class="carousel-item">
-                <div class="col-12 col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top"
-                      src="https://cdn.shopify.com/s/files/1/0908/9320/products/PA021724_edited_360x.jpg?v=1555091925"
-                      alt="Card image cap">
-                    <div class="card-body text-center">
-                      <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
-                      <p class="card-text">$699.00</p>
-                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 4 -->
-              <div class="carousel-item">
-                <div class="col-12 col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top"
-                      src="https://cdn.shopify.com/s/files/1/0908/9320/products/PB011059-cleanbase-selective-color_360x.jpg?v=1555435970"
-                      alt="Card image cap">
-                    <div class="card-body text-center">
-                      <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
-                      <p class="card-text">$699.00</p>
-                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 5 -->
-              <div class="carousel-item">
-                <div class="col-12 col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top"
-                      src="https://cdn.shopify.com/s/files/1/0908/9320/products/PB131580_360x.jpg?v=1555345700"
-                      alt="Card image cap">
-                    <div class="card-body text-center">
-                      <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
-                      <p class="card-text">$699.00</p>
-                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 6 -->
-              <div class="carousel-item">
-                <div class="col-12 col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top"
-                      src="https://cdn.shopify.com/s/files/1/0908/9320/products/P5063177_360x.jpg?v=1555308358"
-                      alt="Card image cap">
-                    <div class="card-body text-center">
-                      <h4 class="card-title font-weight-bold">Alani red lace mermaid dress</h4>
-                      <p class="card-text">$699.00</p>
-                      <a class="btn blue btn-md btn-rounded animated heartBeat infinite">QUICK VIEW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--========END========-->
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carousel-example-multi" role="button" data-slide="prev">
-            <div class="" style="color: black;">
-              <span class="fas fa-angle-left" aria-hidden="true"></span>
-            </div>
+        <div class="container p-0">
+          <a id="prev" class="carousel-control-prev" role="button" data-slide="prev">
+            <span class="fas fa-angle-left fa-3x" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#carousel-example-multi" role="button" data-slide="next">
-            <div class="" style="color: black;">
-              <span class="fas fa-angle-right" aria-hidden="true"></span>
-            </div>
+          <a id="next" class="carousel-control-next" role="button" data-slide="next">
+            <span class="fas fa-angle-right fa-3x" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
-      </div>
 
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+
+            <div *ngFor="let slide of sectionSlides" ngxSlickItem class="slide d-flex justify-content-center">
+              <div class="card">
+                <img class="slide-images card-img-top" [src]="slide.image" alt="Card image">
+                <div class="card-body text-center">
+                  <h5 style="font-size: 13pt;" class="w-100 font-weight-bold card-title">{{slide.name}}</h5>
+                  <p class="card-text">{{slide.price | currency}}</p>
+                  <a (click)="openQuickView(slide.id)" data-target="#quick" data-toggle="modal" class="btn btn-hover blue text-light animated fadeIn">QUICK VIEW</a>
+                </div>
+              </div>
+            </div>
+
+          </ngx-slick-carousel>
+        </div>
+
+      </div>
     </div>
   </div>
+
+  <div id="quick" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="quick" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+
+      <div class="modal-content w-100">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <quick-view [thumbImg]="thumbImg" [info]="quickView"></quick-view>
+
+      </div>
+    </div>
+  </div>
+
 </section>
 <!--  -->
 <section class="shop">
   <div class="container flex-center">
     <div class="row text-center">
       <div class="col-md-12 col-12">
-        <h2 class="text-mobile-big h2-responsive font-weight-bold">CREATE YOUR DREAM DRESS NOW</h2>
+        <h2 class="text-mobile-big h2-responsive font-weight-bold animated fadeIn infinite">Find your dream dress and
+          let us turn it to reality
+          now</h2>
       </div>
       <div class="w-100"></div>
-      <div class="col-md-12 col-12" col-12>
+      <!-- <div class="col-md-12 col-12" col-12>
         <p class="text-mobile-normal h4-responsive font-weight-light">Stand out as much as you can</p>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
 <!--  -->
-<section class="section-follow mb-5">
-  <div class="container text-center">
+<section class="section-follow mb-2">
+  <div class="container">
     <div class="row">
       <div class="col-12">
         <h3 class="background double"><span>Follow us on Instagram</span></h3>
       </div>
-
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row text-center">
       <div class="col-12">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
-              <img width="175px" height="218px"
-                src="https://scontent.cdninstagram.com/vp/8d984b5fb670cae2b61aa0af05ca91c7/5CEEF862/t51.2885-15/sh0.08/e35/s640x640/60086527_144962839965965_6192842220661975405_n.jpg?_nc_ht=scontent.cdninstagram.com"
-                alt="">
-            </div>
-            <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
-              <img width="175px" height="218px"
-                src="https://scontent.cdninstagram.com/vp/7c225e8d81aacb46b3353db2b9a76c95/5D7B31C3/t51.2885-15/sh0.08/e35/p640x640/56669844_109939000095747_8391294405297374331_n.jpg?_nc_ht=scontent.cdninstagram.com"
-                alt="">
-            </div>
-            <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
-              <img width="175px" height="218px"
-                src="https://scontent.cdninstagram.com/vp/618ac5bc3d4488f088a83e20ede26df5/5CEEEFCF/t51.2885-15/sh0.08/e35/s640x640/60371189_454080452057049_3833243056040001566_n.jpg?_nc_ht=scontent.cdninstagram.com"
-                alt="">
-            </div>
-            <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
-              <img width="175px" height="218px"
-                src="https://scontent.cdninstagram.com/vp/bc4b354525cf042883584125382da24a/5CEE257E/t51.2885-15/sh0.08/e35/s640x640/58790383_283834479162649_7927177513333653670_n.jpg?_nc_ht=scontent.cdninstagram.com"
-                alt="">
-            </div>
-            <div class="col-12 mt-3 col-md-6 col-lg-3 mt-md-2">
-              <img width="175px" height="218px"
-                src="https://scontent.cdninstagram.com/vp/594d3226d2acbda26a7fe933ac8f4e8b/5D9BCB87/t51.2885-15/sh0.08/e35/s640x640/58654837_309543333307093_8529465583733743904_n.jpg?_nc_ht=scontent.cdninstagram.com"
-                alt="">
-            </div>
-          </div>
-        </div>
+        <a href="https://instagram.com/nkbridalaustralia" target="_blank" class="fab fa-instagram fa-4x"></a>
       </div>
-
     </div>
   </div>
 </section>

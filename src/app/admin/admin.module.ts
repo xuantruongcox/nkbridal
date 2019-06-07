@@ -1,0 +1,61 @@
+import { ContactUsComponent } from './../component/contact-us/contact-us.component';
+import { FormsModule } from '@angular/forms';
+import { AdminComponent } from './../layouts/admin/admin.component';
+import { ApiServiceService } from './../services/api-service.service';
+import { ListService } from './../list.service';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ReturnExchangeComponent } from '../component/return-exchange/return-exchange.component';
+import { HeaderComponent } from './../component/header/header.component';
+import { NavbarComponent } from './../component/navbar/navbar.component';
+import { AboutUsComponent } from './../component/about-us/about-us.component';
+import { ProductsComponent } from './../collections/products/products.component';
+import { MainCollectionsComponent } from './../collections/main-collections/main-collections.component';
+import { HomeComponent } from './../component/home/home.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ObjectComponent } from '../collections/products/prom-formal-dress/object.component';
+import { BridesmaidDressComponent } from './../collections/bridesmaid-dress/bridesmaid-dress.component';
+import { PromFormalDressComponent } from './../collections/prom-formal-dress/prom-formal-dress.component';
+import { WeddingDressesComponent } from './../collections/wedding-dresses/wedding-dresses.component';
+import { AdminRoutingModule } from './admin-routing.module';
+import { WeddingDressesProductComponent } from '../collections/products/wedding-dresses/wedding-dresses.component';
+import { BridesmaidProductComponent } from '../collections/products/bridesmaid-product/bridesmaid-product.component';
+import { Info } from '../collections/info-property';
+import 'jquery';
+import 'popper.js';
+import 'bootstrap';
+import 'bootstrap-material-design';
+import 'aws-sdk';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HttpClientModule } from '@angular/common/http';
+import { ViewProductComponent } from '../collections/products/view-product/view-product.component';
+import { QuickViewComponent } from '../collections/products/quick-view/quick-view.component';
+@NgModule({
+  declarations: [
+    ObjectComponent,
+    BridesmaidDressComponent,
+    BridesmaidProductComponent,
+    PromFormalDressComponent,
+    WeddingDressesComponent,
+    WeddingDressesProductComponent,
+    HomeComponent,
+    MainCollectionsComponent,
+    ProductsComponent,
+    AboutUsComponent,
+    NavbarComponent,
+    HeaderComponent,
+    QuickViewComponent,
+    ViewProductComponent,
+    AdminComponent,
+    ReturnExchangeComponent,
+    ContactUsComponent,
+  ],
+  imports: [
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    AdminRoutingModule,
+    SlickCarouselModule
+  ]
+})
+export class AdminModule { }

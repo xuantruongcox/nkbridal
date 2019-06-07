@@ -1,7 +1,13 @@
-import { DragScrollModule, DragScrollComponent } from 'ngx-drag-scroll';
+import { Info } from './../../collections/info-property';
+import { ApiServiceService } from './../../services/api-service.service';
+import { SECTIONSLIDE } from './../../collections/mock-list';
+import { SECTIONMODEL, SECTIONSTYLE } from 'src/app/collections/mock-list';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { NgImageSliderComponent } from 'ng-image-slider';
 import * as $ from 'jquery';
+import { Router } from '@angular/router';
+import 'bootstrap'
+import { NguCarouselConfig } from '@ngu/carousel';
+import { NguButton, CarouselInterval, Transfrom } from '@ngu/carousel/lib/ngu-carousel/ngu-carousel';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,31 +19,70 @@ import * as $ from 'jquery';
 
 export class HomeComponent implements OnInit {
 
-  lists = [
-    {title: 'FORMAL/PROM',img:'https://cdn.shopify.com/s/files/1/0908/9320/files/PA162450_edited_540x.jpg?v=1542864753'},
-    {title: 'WEDDING DRESS',img:'https://cdn.shopify.com/s/files/1/0908/9320/files/P8220187_FITTED_540x.jpg?v=1542865688'},
-    {title: 'BRIDESMAID',img:'https://cdn.shopify.com/s/files/1/0908/9320/files/PA303297_540x.JPG?v=1542865804'},
-  ]
-  
+  sectionModels = SECTIONMODEL;
+  sectionStyles = SECTIONSTYLE;
+  sectionSlides: Info[];
+  quickView: Info[];
+  routeFormal = 'formal';
+  thumbImg;
   ngOnInit() {
-   
-    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
-      var next = $(this).next();
-      if (!next.length) {
-        next = $(this).siblings(':first');
-      }
-      next.children(':first-child').clone().appendTo($(this));
-      for (var i = 0; i < 3; i++) {
-        next = next.next();
-        if (!next.length) {
-          next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-      }
-    })
-  }
+    this.getFormal();
+    // ==================
 
-  constructor() {
   }
+  constructor(private service: ApiServiceService) {
+  }
+  getFormal() {
+    this.service.getAllInfo(this.routeFormal)
+      .subscribe(res => {
+        this.sectionSlides = res;
+
+      })
+  }
+  openQuickView(id) {
+    this.service.getInfo(id, this.routeFormal)
+      .subscribe(res => {
+        this.quickView = res;
+      })
+    this.service.getThumb(id)
+      .subscribe(res => this.thumbImg = res)
+  }
+  /*  */
+
+  slideConfig = {
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    nextArrow: "#next",
+    prevArrow: "#prev",
+    dots: true,
+    infinite: false,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+
+      }
+    },{
+      breakpoint: 995,
+      settings:{
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      }
+    },{
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      }
+    },{
+      breapoint: 1600,
+      settings:{
+        slidesToShow: 4,
+        slidesToScroll: 1,
+      }
+    }]
+
+  };
 }
 

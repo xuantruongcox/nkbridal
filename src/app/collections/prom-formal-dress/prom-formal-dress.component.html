@@ -45,33 +45,32 @@
   </div>
 </div>
 <!--  -->
+
+
 <div class="container text-center mt-3 mb-4">
   <div class="row">
-    <div *ngFor="let list of lists" class="col-md-3 col-12 mb-3">
-      <div class="model-parent position-relative text-center">
-        <a href="" class="btn btn-sm blue text-dark font-weight-bold position-absolute" data-toggle="modal"
-          data-target="#quick">QUICK VIEW</a>
-        <img class="img-model img-fluid h-100 h-md-auto border mx-auto d-block" [src]="list.img" alt="">
+    <div *ngFor="let list of lists;" class="col-md-4 col-lg-3 col-12 mb-3">
+      <div class="model-parent">
+        <a (click)="openQuickView(list.id)" class="btn btn-sm blue text-dark font-weight-bold animated fadeIn"
+          data-toggle="modal" data-target="#quick">QUICK VIEW</a>
+        <img routerLink="/products/prom-formal-dress/{{list.id}}"
+          class="img-model border d-block" [src]="list.image" alt="">
       </div>
-      <p class="mb-0">{{list.name}}</p>
+      <p class="font-weight-bold mt-2 mb-0">{{list.name}}</p>
       <p class="text-muted">{{list.price | currency}}</p>
     </div>
   </div>
 </div>
 
 <div id="quick" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="quick" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="row">
-        <div class="col-md-8">
-          test
-        </div>
-        <div class="col-md-4">
-          <div class="container">
-            
-          </div>
-        </div>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content w-100">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <quick-view [thumbImg]="thumbImg" [info]="formalQuickView"></quick-view>
     </div>
   </div>
 </div>

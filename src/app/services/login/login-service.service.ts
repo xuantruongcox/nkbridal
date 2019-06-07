@@ -1,0 +1,17 @@
+import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+const apiUrl = 'http://localhost:49160/api/';
+const login = 'users/login';
+@Injectable({
+  providedIn: 'root'
+})
+export class AdminServiceService {
+  
+  constructor(private http: HttpClient) { }
+
+  login(body):Observable<any>{
+    return this.http.get(apiUrl + login + `/${body["user_name"]}` + `/${body["password"]}`);
+  }
+  
+}

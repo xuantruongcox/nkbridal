@@ -12,9 +12,10 @@
   }
   .model-parent {
     a {
-      top: 360px !important;
-      left: 80px !important;
-      right: 80px !important;
+      display: none !important;
+    }
+    img {
+      height: 27rem !important;
     }
   }
 }
@@ -22,19 +23,29 @@ select {
   padding: 5px;
   background-color: white;
 }
-.model-parent {
-  a {
-    display: none;
-    top: 250px;
-    left: 0px;
-    right: 0px;
-  }
-}
+
 .blue {
   background-color: rgb(138, 232, 255) !important;
 }
-.model-parent:hover{
-  a{
+.model-parent {
+  text-align: center;
+  padding: 0;
+  a {
+    display: none;
+    box-shadow: none;
+    position: absolute;
+    top: 18rem;
+    left: 2rem;
+    right: 2rem;
+  }
+  img {
+    border-radius: 5px;
+    height: 23rem;
+    width: 100%;
+  }
+}
+.model-parent:hover {
+  a {
     display: block;
   }
 }
