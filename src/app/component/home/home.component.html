@@ -18,7 +18,7 @@
         <div class="info-group carousel-caption">
           <h2 class="m-0 text-light font-weight-bold">{{sectionModel.title}}</h2>
           <p class="text-light">{{sectionModel.content}}</p>
-          <a class="m-0 btn btn-black">{{sectionModel.btn_title}}</a>
+          <a routerLink="/collections/{{sectionModel.category | lowercase}}" class="m-0 btn text-light btn-black">{{sectionModel.btn_title}}</a>
         </div>
       </div>
     </div>
