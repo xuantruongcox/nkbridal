@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { ApiServiceService } from './../../services/api-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Info } from '../info-property';
@@ -12,33 +13,33 @@ export class PromFormalDressComponent implements OnInit {
   route = 'formal';
   formalQuickView: Info;
   idFormal;
-  title = "QUICK VIEW"
+  title = "Formal Dress"
   lists: Info[];
   thumbImg;
-
-  constructor(private service: ListService, private apiService: ApiServiceService) { }
-
+  adminIsLoggedIn = false;
+  fadeOut = false;
+  p: number = 1;
+  collection: any[];
+  constructor(private service: ListService, private auth: AuthService, private apiService: ApiServiceService) {
+    this.adminIsLoggedIn = this.auth.isLoggedInAdmin;
+  }
   ngOnInit() {
-    this.getInfoFormal();
+    setTimeout(() => {
+      this.getInfoFormal()
+    }, 100)
+
   }
 
 
   getInfoFormal() {
+
     this.apiService.getAllInfo(this.route)
       .subscribe(res => {
         this.lists = res;
+        this.collection = res;
       })
   }
 
-  openQuickView(id) {
-    this.apiService.getInfo(id, this.route)
-      .subscribe(res => {
-        this.formalQuickView = res;
-        console.log(res);
-      })
-    this.apiService.getThumb(id)
-      .subscribe(res => this.thumbImg = res)
-  }
 
   /*======/.FORMAL ======*/
 }

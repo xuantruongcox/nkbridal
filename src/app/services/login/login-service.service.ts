@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-const apiUrl = 'http://localhost:49160/api/';
+const apiUrl = 'http://node-nkbridal.ap-southeast-1.elasticbeanstalk.com/api/';
 const login = 'users/login';
 @Injectable({
   providedIn: 'root'

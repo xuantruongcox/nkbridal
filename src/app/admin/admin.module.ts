@@ -1,9 +1,10 @@
+import { MainLayoutComponent } from './../collections/main-layout/main-layout.component';
+import { Http, HttpModule } from '@angular/http';
+import { UncategorisedProductComponent } from './../collections/products/uncategorised/uncategorised.component';
+import { UncategorisedComponent } from './../collections/uncategorised/uncategorised.component';
 import { ContactUsComponent } from './../component/contact-us/contact-us.component';
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './../layouts/admin/admin.component';
-import { ApiServiceService } from './../services/api-service.service';
-import { ListService } from './../list.service';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReturnExchangeComponent } from '../component/return-exchange/return-exchange.component';
 import { HeaderComponent } from './../component/header/header.component';
 import { NavbarComponent } from './../component/navbar/navbar.component';
@@ -26,6 +27,7 @@ import 'popper.js';
 import 'bootstrap';
 import 'bootstrap-material-design';
 import 'aws-sdk';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewProductComponent } from '../collections/products/view-product/view-product.component';
@@ -49,13 +51,18 @@ import { QuickViewComponent } from '../collections/products/quick-view/quick-vie
     AdminComponent,
     ReturnExchangeComponent,
     ContactUsComponent,
+    UncategorisedComponent,
+    UncategorisedProductComponent,
+    MainLayoutComponent
   ],
   imports: [
     HttpClientModule,
+    HttpModule,
     FormsModule,
     CommonModule,
     AdminRoutingModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    NgxPaginationModule
   ]
 })
 export class AdminModule { }

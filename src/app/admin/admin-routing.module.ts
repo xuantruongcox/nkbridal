@@ -1,3 +1,5 @@
+import { UncategorisedProductComponent } from './../collections/products/uncategorised/uncategorised.component';
+import { UncategorisedComponent } from './../collections/uncategorised/uncategorised.component';
 import { ContactUsComponent } from './../component/contact-us/contact-us.component';
 import { AdminComponent } from './../layouts/admin/admin.component';
 import { AuthGuard } from './../auth/auth.guard';
@@ -13,44 +15,42 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { WeddingDressesProductComponent } from '../collections/products/wedding-dresses/wedding-dresses.component';
 import { BridesmaidProductComponent } from '../collections/products/bridesmaid-product/bridesmaid-product.component';
-import {AdminGuard} from './../auth/admin.guard';
+import { AdminGuard } from './../auth/admin.guard';
 import { ReturnExchangeComponent } from '../component/return-exchange/return-exchange.component';
 const adminRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard],
 
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'about-us', component: AboutUsComponent, canActivate: [AuthGuard]
+    path: 'about-us', component: AboutUsComponent
   },
   {
-    path: 'return-exchange', component: ReturnExchangeComponent,
-    canActivate: [AuthGuard]
+    path: 'return-exchange', component: ReturnExchangeComponent
   },
   {
-    path: 'contact-us', component: ContactUsComponent,
-    canActivate: [AuthGuard]
+    path: 'contact-us', component: ContactUsComponent
   },
   {
-    path: 'collections', component: MainCollectionsComponent,
-    canActivate: [AuthGuard],
+    path: 'collections', component: MainCollectionsComponent
   },
-  { path: 'collections/wedding-dresses', component: WeddingDressesComponent,canActivate: [AuthGuard] },
-  { path: 'collections/prom-formal-dress', component: PromFormalDressComponent,canActivate: [AuthGuard] },
-  { path: 'collections/bridesmaid-dress', component: BridesmaidDressComponent,canActivate: [AuthGuard] },
+  { path: 'collections/wedding', component: WeddingDressesComponent },
+  { path: 'collections/formal', component: PromFormalDressComponent },
+  { path: 'collections/bridesmaid', component: BridesmaidDressComponent },
+  { path: 'collections/uncategorised', component: UncategorisedComponent },
   {
-    path: 'products', component: MainCollectionsComponent, canActivate: [AuthGuard],
+    path: 'products', component: MainCollectionsComponent
   },
-  { path: 'products/prom-formal-dress/:id', component: ObjectComponent, canActivate: [AuthGuard] },
-  { path: 'products/wedding-dresses/:id', component: WeddingDressesProductComponent, canActivate: [AuthGuard] },
-  { path: 'products/bridesmaid-dress/:id', component: BridesmaidProductComponent, canActivate: [AuthGuard] },
+  { path: 'products/uncategorised/:id', component: UncategorisedProductComponent },
+  { path: 'products/formal/:id', component: ObjectComponent },
+  { path: 'products/wedding/:id', component: WeddingDressesProductComponent },
+  { path: 'products/bridesmaid/:id', component: BridesmaidProductComponent },
   {
     path: 'home/upload',
     component: AdminComponent,
-    canActivate:[AdminGuard]
+    canActivate: [AdminGuard]
   }
 ];
 

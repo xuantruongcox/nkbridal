@@ -1,0 +1,58 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<!--  -->
+<div class="container d-flex flex-column">
+  <h3 class="my-4 text-center text-uppercase font-weight-bold">{{title}}</h3>
+  
+</div>
+<!--  -->
+
+
+<div class="container text-center mt-3 mb-4">
+  <pagination-controls class="pagination animated fadeIn" autoHide=true responsive=true nextLabel="" previousLabel="" (pageChange)="p = $event">
+  </pagination-controls>
+  <div class="row">
+    <div *ngFor="let list of lists| paginate: { itemsPerPage: 16, currentPage: p }; let i = index"
+      class="col-md-4 col-lg-3 col-12 mb-3 animated">
+      <div class="model-parent">
+        <div class="btn-group">
+          <ng-template [ngIf]="!adminIsLoggedIn">
+            <a (click)="openQuickView(list.id)"
+              class="d-none btn btn-sm blue text-dark font-weight-bold animated fadeIn" data-toggle="modal"
+              data-target="#quick">QUICK VIEW</a>
+          </ng-template>
+
+          <ng-template [ngIf]="adminIsLoggedIn">
+            <div class="btn-admin w-100">
+
+              <a [routerLink]="['/home/upload']"
+                class="d-block mb-3 btn btn-sm blue text-dark font-weight-bold animated fadeIn">Edit</a>
+              <a (click)="deleteProduct(list.id);"
+                class="btn d-block btn-sm blue text-dark font-weight-bold animated fadeIn">DELETE</a>
+            </div>
+
+          </ng-template>
+
+        </div>
+        <img routerLink="/products/{{route}}/{{list.id}}" class="img-model border d-block" [src]="list.image"
+          alt="">
+      </div>
+      <p class="font-weight-bold mt-2 mb-0">{{list.name}}</p>
+      <p class="text-muted">{{list.price | currency}}</p>
+    </div>
+  </div>
+  <pagination-controls class="pagination flex-center" autoHide=true responsive=true nextLabel="" previousLabel="" (pageChange)="p = $event"></pagination-controls>
+
+</div>
+<div id="quick" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="quick" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content w-100">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <quick-view [thumbImg]="thumbImg" [info]="QuickView"></quick-view>
+    </div>
+  </div>
+</div>

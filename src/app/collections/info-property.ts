@@ -38,3 +38,10 @@ export class Login{
     userName: string;
     password: string;
 }
+export class Footer{
+    Title:string;
+    Address:string;
+    NumPhone:number;
+    Email:string;
+    Copyright:string;
+}

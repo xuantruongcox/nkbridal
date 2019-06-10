@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { ApiServiceService } from './../../services/api-service.service';
 import { Info } from './../info-property';
 import { Component, OnInit } from '@angular/core';
@@ -12,30 +13,29 @@ import { ListService } from 'src/app/list.service';
 export class WeddingDressesComponent implements OnInit {
   route = 'wedding'
   quickView: Info;
-  title = "QUICK VIEW"
+  title = "Wedding Dresses"
   lists: Info[];
   thumbImg;
-  constructor(private service: ListService, private apiService: ApiServiceService) { }
-
-  ngOnInit() {
-    this.getWedding();
+  adminIsLoggedIn = false;
+  fadeOut = false;
+  p: number = 1;
+  collection: any[];
+  constructor(private service: ListService, private auth: AuthService, private apiService: ApiServiceService) {
+    this.adminIsLoggedIn = this.auth.isLoggedInAdmin;
   }
-  /* getWedding(){
-    this.service.getWedding()
-      .subscribe(wedding => this.lists = wedding)
-  } */
+  ngOnInit() {
+    setTimeout(() => {
+      this.getWedding()
+    },100)
+
+  }
+
   getWedding() {
     this.apiService.getAllInfo(this.route)
       .subscribe(res => {
         this.lists = res;
+        this.collection = res;
       })
   }
-  openQuickView(id) {
-    this.apiService.getInfo(id, this.route)
-      .subscribe(res => {
-        this.quickView = res;
-      })
-    this.apiService.getThumb(id)
-      .subscribe(res => this.thumbImg = res)
-  }
+ 
 }

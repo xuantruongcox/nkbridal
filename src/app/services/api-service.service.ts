@@ -3,9 +3,12 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const apiUrl = 'http://localhost:49160/api/';
+const apiUrl = 'http://node-nkbridal.ap-southeast-1.elasticbeanstalk.com/api/';
 const ProductImg = 'products/';
 const thumbnailImg = 'thumbnail/';
+const slideAPI = 'slide/';
+const footerAPI = 'footer/';
+const categoryAPI = 'category/';
 const user = 'users/'
 @Injectable({
   providedIn: 'root'
@@ -15,30 +18,61 @@ export class ApiServiceService {
 
   constructor(private http: HttpClient) { }
   /* THUMBNAILS API */
-  addThumb(bodyParams): Observable<any>{
+  addThumb(bodyParams): Observable<any> {
     return this.http.post<any>(apiUrl + thumbnailImg + 'add', bodyParams)
   }
-  getThumb(id_product):Observable<any>{
+  getThumb(id_product): Observable<any> {
     return this.http.get<any>(apiUrl + thumbnailImg + id_product);
+  }
+  deleteThumbnail(id): Observable<any> {
+    return this.http.delete<any>(apiUrl + thumbnailImg + id);
   }
   /* /.THUMBNAILS API */
   /* ===================== */
   /* PRODUCTS API */
-  addProducts(bodyParams){
+  addProducts(bodyParams): Observable<any> {
     return this.http.post<any>(apiUrl + ProductImg + 'add', bodyParams)
   }
-  getInfo(id: any,route: any):Observable<any>{
+  getInfo(id: any, route: any): Observable<any> {
     return this.http.get<any>(apiUrl + 'products/' + route + '/' + id);
   }
-  getAllInfo(route):Observable<any>{
+  getAllInfo(route): Observable<any> {
     return this.http.get<any>(apiUrl + 'products/' + route);
+  }
+  deleteProduct(id): Observable<any> {
+    return this.http.delete<any>(apiUrl + ProductImg + id);
   }
   /* /.PRODUCTS API */
   /* ===================== */
   /* SETTING API */
-  getSetting():Observable<any>{
+  getSetting(): Observable<any> {
     return this.http.get<any>(apiUrl + 'setting');
   }
   /* /.SETTING API */
   /* ===================== */
+  /* SLIDE */
+  getSlideInfo(): Observable<any> {
+    return this.http.get(apiUrl + slideAPI);
+  }
+  changeSlide(body):Observable<any>{
+    return this.http.put<any>(apiUrl + slideAPI,body);
+  }
+  /* /.SLIDE */
+  /* ===================== */
+  /* FOOTER */
+  getFooter(): Observable<any> {
+    return this.http.get(apiUrl + footerAPI)
+  }
+  getEndHome(): Observable<any>{
+    return this.http.get<any>(apiUrl + 'endhome/');
+  }
+  /* /.FOOTER */
+  /* ===================== */
+  /* CATEGORIES SHOW */
+  getCategoriesShow():Observable<any>{
+    return this.http.get(apiUrl + categoryAPI)
+  }
+  /* /.CATEGORIES SHOW */
+  /* ===================== */
+
 }

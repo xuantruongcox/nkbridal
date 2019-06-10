@@ -1,76 +1,10 @@
-<app-header></app-header>
-<app-navbar></app-navbar>
-<!--  -->
-<div class="container d-flex flex-column">
-  <h3 class="my-4 text-center">Bridesmaids Dress</h3>
-  <div class="row">
-    <div class="col-12 col-md-2">
-      <select id="sort-by" class="w-100">
-        <option value="manual">Featured</option>
-        <option value="price-ascending">Price, low to high</option>
-        <option value="price-descending">Price, high to low</option>
-        <option value="title-ascending">Alphabetically, A-Z</option>
-        <option value="title-descending">Alphabetically, Z-A</option>
-        <option value="created-ascending">Date, old to new</option>
-        <option value="created-descending">Date, new to old</option>
-        <option value="best-selling">Best Selling</option>
-      </select>
-    </div>
-    <!--  -->
-    <div class="col-12 col-md-1 p-md-0 p-3">
-      <select class="w-100">
-        <option value="">Filter by</option>
-        <option value="black">black</option>
-        <option value="red">red</option>
-        <option value="white">white</option>
-        <option value="maroon">maroon</option>
-        <option value="gold">gold</option>
-        <option value="rose-gold">rose gold</option>
-        <option value="pink">pink</option>
-        <option value="royal-blue">royal blue</option>
-        <option value="blue">blue</option>
-        <option value="nude">nude</option>
-      </select>
-    </div>
-    <!--  -->
-    <div class="col-12 col-md-2 pr-md-0 d-flex align-items-center justify-content-md-start justify-content-center">
-      <div class="d-inline">
-        <a href="" class="text-dark fas fa-angle-left"></a>
-      </div>
-      <span class="mx-2">1 of 3</span>
-      <div class="d-inline">
-        <a href="" class="text-dark fas fa-angle-right"></a>
-      </div>
-    </div>
-  </div>
-</div>
-<!--  -->
-
-
-<div class="container text-center mt-3 mb-4">
-  <div class="row">
-    <div *ngFor="let list of lists;" class="col-md-4 col-lg-3 col-12 mb-3">
-      <div class="model-parent">
-        <a (click)="openQuickView(list.id)" class="btn btn-sm blue text-dark font-weight-bold animated fadeIn"
-          data-toggle="modal" data-target="#quick">QUICK VIEW</a>
-        <img routerLink="/products/prom-formal-dress/{{list.id}}"
-          class="img-model border d-block" [src]="list.image" alt="">
-      </div>
-      <p class="font-weight-bold mt-2 mb-0">{{list.name}}</p>
-      <p class="text-muted">{{list.price | currency}}</p>
-    </div>
-  </div>
-</div>
-
-<div id="quick" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="quick" aria-hidden="true">
-  <div class="modal-dialog modal-xl" role="document">
-    <div class="modal-content w-100">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <quick-view  [thumbImg]="thumbImg" [info]="quickView"></quick-view>
-    </div>
-  </div>
-</div>
+<app-main-layout 
+[route]="route"
+[QuickView]="quickView"
+[title]="title"
+[lists]="lists"
+[thumbImg]="thumbImg"
+[adminIsLoggedIn]="adminIsLoggedIn"
+[p]="p"
+[collection]="collection"
+></app-main-layout>

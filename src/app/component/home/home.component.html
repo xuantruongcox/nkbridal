@@ -4,7 +4,7 @@
 <section class="section-model mt-md-3" style="margin-top: 20pt;">
   <div class="mobile text-center mb-3">
     <img [routerLink]="['/home']" src="../../../assets/brand/61202805_433407974137945_1814405193278685184_n.png"
-      width="70%" height="85pt" alt="">
+       alt="">
   </div>
 
   <!--Carousel Wrapper-->
@@ -13,28 +13,23 @@
     <div class="carousel-inner" role="listbox">
       <div *ngFor="let sectionModel of sectionModels; let i = index" class="carousel-item"
         [class.active]="i == 0 ? true : false">
-        <div class="view">
-          <img class="d-block img-fluid" [src]="sectionModel.img" alt="First slide">
-        </div>
-        <div class="carousel-caption">
-          <div class="parent-caption black">
-            <h1 class="h1-responsive font-weight-bold">{{sectionModel.title}}</h1>
-            <p class="h4 font-weight-light">{{sectionModel.content}}</p>
-            <a routerLink="/collections/{{sectionModel.routeName}}"
-              class="btn btn-md text-light btn-black">{{sectionModel.nameBtn}}</a>
-          </div>
+
+        <img routerLink="/collections/{{sectionModel.category | lowercase}}" class="image-slide d-block" [src]="sectionModel.image" alt="First slide">
+        <div class="info-group carousel-caption">
+          <h2 class="m-0 text-light font-weight-bold">{{sectionModel.title}}</h2>
+          <p class="text-light">{{sectionModel.content}}</p>
+          <a class="m-0 btn btn-black">{{sectionModel.btn_title}}</a>
         </div>
       </div>
-
     </div>
     <!--/.Slides-->
     <!--Controls-->
     <a class="carousel-control-prev" href="#carousel-ex" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="fas fa-angle-left fa-2x" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next" href="#carousel-ex" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="fas fa-angle-right fa-2x" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
     <!--/.Controls-->
@@ -47,18 +42,13 @@
   <div class="container">
     <div class="row">
       <div *ngFor="let sectionStyle of sectionStyles" class="col-md-4 col-12 overflow-hidden p-md-0">
-        <div class="link-parent text-center flex-center mx-2 my-2 my-md-0 position-relative">
+        <div routerLink="/collections/{{sectionStyle.title | lowercase}}"
+          class="link-parent text-center flex-center mx-2 my-2 my-md-0 position-relative">
           <div class="position-absolute blank w-100 h-100"></div>
-          <p class="h2-responsive">{{sectionStyle.title}}</p>
-          <a class="h4-responsive position-absolute" [routerLink]="sectionStyle.routeName">{{sectionStyle.nameBtn}}</a>
-          <img class="img-fluid rounded" [src]="sectionStyle.img" alt="">
+          <p class="h2-responsive text-uppercase flex-center font-weight-bold" style="color: white !important">
+            {{sectionStyle.title}}</p>
+          <img class="category-image rounded" [src]="sectionStyle.image" alt="">
         </div>
-      </div>
-      <div class="col-md-">
-
-      </div>
-      <div class="col-md-">
-
       </div>
     </div>
   </div>
@@ -86,6 +76,7 @@
     </div>
   </div>
   <!--  -->
+
 </section>
 <!--  -->
 <section class="section-slide mb-4">
@@ -114,7 +105,8 @@
                 <div class="card-body text-center">
                   <h5 style="font-size: 13pt;" class="w-100 font-weight-bold card-title">{{slide.name}}</h5>
                   <p class="card-text">{{slide.price | currency}}</p>
-                  <a (click)="openQuickView(slide.id)" data-target="#quick" data-toggle="modal" class="btn btn-hover blue text-light animated fadeIn">QUICK VIEW</a>
+                  <a (click)="openQuickView(slide.id)" data-target="#quick" data-toggle="modal"
+                    class="btn btn-hover blue text-light animated fadeIn">QUICK VIEW</a>
                 </div>
               </div>
             </div>
@@ -143,19 +135,9 @@
 
 </section>
 <!--  -->
-<section class="shop">
-  <div class="container flex-center">
-    <div class="row text-center">
-      <div class="col-md-12 col-12">
-        <h2 class="text-mobile-big h2-responsive font-weight-bold animated fadeIn infinite">Find your dream dress and
-          let us turn it to reality
-          now</h2>
-      </div>
-      <div class="w-100"></div>
-      <!-- <div class="col-md-12 col-12" col-12>
-        <p class="text-mobile-normal h4-responsive font-weight-light">Stand out as much as you can</p>
-      </div> -->
-    </div>
+<section *ngIf="sectionEnd" class="shop" [ngStyle]="{'background-image':'url('+ sectionEnd.image +')'}">
+  <div class="container-fluid text-center flex-center pt-5 h-100">
+    <h2 class="text-mobile-big text-light font-weight-bold animated fadeIn">{{sectionEnd.title}}</h2>
   </div>
 </section>
 <!--  -->

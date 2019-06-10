@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { Info } from './../../collections/info-property';
 import { ApiServiceService } from './../../services/api-service.service';
 import { SECTIONSLIDE } from './../../collections/mock-list';
@@ -19,18 +20,24 @@ import { NguButton, CarouselInterval, Transfrom } from '@ngu/carousel/lib/ngu-ca
 
 export class HomeComponent implements OnInit {
 
-  sectionModels = SECTIONMODEL;
-  sectionStyles = SECTIONSTYLE;
+  sectionModels;
+  sectionStyles;
   sectionSlides: Info[];
+  sectionEnd;
+
   quickView: Info[];
   routeFormal = 'formal';
   thumbImg;
   ngOnInit() {
     this.getFormal();
     // ==================
-
+    this.getShowSlide();
+    // ==================
+    this.getShowCategories();
+    // ==================
+    this.getEndHome();
   }
-  constructor(private service: ApiServiceService) {
+  constructor(private service: ApiServiceService,private adminControls: AuthService) {
   }
   getFormal() {
     this.service.getAllInfo(this.routeFormal)
@@ -49,6 +56,7 @@ export class HomeComponent implements OnInit {
   }
   /*  */
 
+  // Show Product
   slideConfig = {
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -61,13 +69,14 @@ export class HomeComponent implements OnInit {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-
+        dots: false,
       }
     },{
       breakpoint: 995,
       settings:{
         slidesToShow: 2,
         slidesToScroll: 1,
+        dots:false,
       }
     },{
       breakpoint: 1200,
@@ -84,5 +93,27 @@ export class HomeComponent implements OnInit {
     }]
 
   };
+  // Head Slide
+  getShowSlide(){
+    this.service.getSlideInfo()
+      .subscribe(res=>{
+        this.sectionModels = res;
+      })
+  }
+  adminSlideControl;
+  // Show Categories
+  getShowCategories(){
+    this.service.getCategoriesShow()
+      .subscribe(res=>{
+        this.sectionStyles = res;
+      })
+  }
+  // Footer
+  getEndHome(){
+    this.service.getEndHome()
+      .subscribe(res=>{
+        this.sectionEnd = res[0]
+      })
+  }
 }
 

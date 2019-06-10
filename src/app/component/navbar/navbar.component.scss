@@ -2,11 +2,9 @@
   .bg-md-sweet {
     background-color: rgb(248, 228, 231) !important;
   }
-  .nav-link {
-    color: black !important;
-  }
+
   .nav-link:hover {
-    background-color: black !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
     color: white !important;
   }
   .navbar {
@@ -30,7 +28,7 @@
     z-index: 1030;
   }
   .brand{
-    margin-top: 70pt;
+    margin-top: 45pt;
   }
 
 }

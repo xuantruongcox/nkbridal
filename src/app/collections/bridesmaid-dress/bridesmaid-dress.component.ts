@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { ApiServiceService } from './../../services/api-service.service';
 import { ListService } from './../../list.service';
 import { Info } from './../info-property';
@@ -12,31 +13,29 @@ import { BRIDESMAIDS } from '../mock-list';
 export class BridesmaidDressComponent implements OnInit {
   route = 'bridesmaid'
   quickView: Info;
-  title = "QUICK VIEW";
+  title = "Bridesmaid Dress";
   lists: Info[];
   thumbImg;
-  constructor(private listService: ListService, private apiService: ApiServiceService) { }
-
+  adminIsLoggedIn = false;
+  fadeOut = false;
+  p: number = 1;
+  collection: any[];
+  constructor(private service: ListService, private auth: AuthService, private apiService: ApiServiceService) {
+    this.adminIsLoggedIn = this.auth.isLoggedInAdmin;
+  }
   ngOnInit() {
-    this.getBride();
+    setTimeout(() => {
+      this.getBride()
+    },100)
+
   }
 
-  /* getBride(){
-    this.listService.getBride()
-      .subscribe(bride => this.lists = bride)
-  } */
+  
   getBride() {
     this.apiService.getAllInfo(this.route)
       .subscribe(res => {
+        this.collection= res;
         this.lists = res;
       })
-  }
-  openQuickView(id) {
-    this.apiService.getInfo(id, this.route)
-      .subscribe(res => {
-        this.quickView = res;
-      })
-    this.apiService.getThumb(id)
-      .subscribe(res => this.thumbImg = res)
   }
 }

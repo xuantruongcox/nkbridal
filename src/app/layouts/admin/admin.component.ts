@@ -33,6 +33,7 @@ export class AdminComponent implements OnInit {
   /* Upload METHOD */
 
   uploadImage(albumName, info) {
+    alert("Waiting...");                    
     /* Config s3*/
 
     /* /.Config s3 */
@@ -77,7 +78,6 @@ export class AdminComponent implements OnInit {
                   .subscribe(res => {
                     let id = res.insertId
                     this.awsService.uploadFile(albumName, files, id)
-                    alert("Waiting...");                    
                   },err,()=>{
                     setTimeout(()=>{
                       alert("Completed.!!!");
@@ -89,7 +89,7 @@ export class AdminComponent implements OnInit {
                         fileInputSingle.value = "",
                         info.category = null,
                       ];
-                    },1000)
+                    },100)
                   })
               }, 100)
             }

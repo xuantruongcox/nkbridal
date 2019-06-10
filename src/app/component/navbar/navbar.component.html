@@ -1,9 +1,6 @@
 <nav class="navbar navbar-expand-md fixed-top-custom blue navbar-light animated fadeIn">
   <div class="container">
     <div class="row">
-      <div class="col-12 flex-center">
-        <div class="d-sm-block d-md-none mb-2">We ship world-wide using Australia Post</div>
-      </div>
 
       <div class="col-12 flex-center pr-4">
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target=".collapse"
@@ -13,20 +10,20 @@
         <div class="mobile-device flex-center">
           <div class="d-inline">
             <i [routerLink]="['/home']" class="fas fa-home d-inline" style="margin-right: 8pt"></i>
-            <i class="fas fa-user d-inline" style="margin-right: 8pt"></i>
           </div>
-          <div class="d-inline mr-4">
-            <select class="d-inline" name="" id="">
-              <option value="">AUD</option>
-              <option value="">USD</option>
-              <option value="">CAD</option>
-              <option value="">EUR</option>
-              <option value="">GBP</option>
-            </select>
+          <div class="">
+            <div class="d-inline" style="margin-right:8pt">
+              <a style="color: black !important" target="_blank" href="https://fb.com/nkbridalaustralia"
+                class="fab fa-facebook bg"></a>
+            </div>
+            <div class="d-inline">
+              <a style="color: black !important" target="_blank" href="https://instagram.com/nkbridalaustralia"
+                class="fab fa-instagram"></a>
+            </div>
           </div>
-          <span style="width: 100%; font-size: 12pt;">MY CART</span>
-          <span class="fas fa-shopping-cart m-auto pl-2"><span class="ml-2">0</span></span>
         </div>
+
+
       </div>
     </div>
   </div>
@@ -35,35 +32,49 @@
 
 
   <!-- Navbar links -->
-  <div class="navbar-collapse collapse" id="navbarCollapse">
-    <ul class="navbar-nav flex-center">
+  <div class="navbar-collapse p-0 collapse" id="navbarCollapse">
+    <ul class="navbar-nav h-100 d-flex align-items-center">
       <li class="nav-item">
-        <a class="nav-link h-100 p-3" [routerLink]="['/collections/prom-formal-dress']">FORMAL</a>
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+          [routerLink]="['/collections/formal']">FORMAL</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+          [routerLink]="['/collections/wedding']">BRIDAL</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+          [routerLink]="['/collections/bridesmaid']">BRIDESMAIDS</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link h-100 p-3" [routerLink]="['/collections/wedding-dresses']">BRIDAL</a>
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+          [routerLink]="['/collections/uncategorised']">Special Offers</a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link h-100 p-3" [routerLink]="['/collections/bridesmaid-dress']">BRIDESMAIDS</a>
+      <li class="nav-item">
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+          [routerLink]="['/return-exchange']">Return and exchange</a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link h-100 p-3" [routerLink]="['/about-us']">ABOUT US</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link h-100 p-3" [routerLink]="['/return-exchange']">Return and exchange</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link h-100 p-3" [routerLink]="['/contact-us']">Contact Us</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link h-100 p-3" href="#">Real people, realstory</a>
+      <li class="nav-item">
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450" [routerLink]="['/about-us']">ABOUT
+          US</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+          [routerLink]="['/contact-us']">Contact Us</a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+          [routerLink]="['/collections/uncategorised']">Real People, Real Story</a>
+      </li>
     </ul>
   </div>
 
 </nav>
 
+
+
 <div class="brand d-block d-md-none text-center">
-  <img [routerLink]="['/home']" width="200px" src="../../../assets/brand/Asset 1@4x.png" alt="">
+  <img [routerLink]="['/home']" width="250pt" src="../../../assets/brand/Asset 1@4x.png" alt="">
 </div>
