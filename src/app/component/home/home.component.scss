@@ -15,6 +15,13 @@
   }
 }
 @media only screen and (max-width: 768px) {
+  #carousel-ex{
+    a{
+      span{
+        font-size: 30px;
+      }
+    }
+  }
   .link-parent {
     cursor: default;
     p {
@@ -247,7 +254,26 @@ section {
   line-height: 12pt;
   
 }
+#carousel-ex{
+  a{
+    span{
+      font-size: 25px;
+    }
+  }
+}
+.info-group{
 
+  a:hover{
+    animation-name: slideBtn;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    
+  }
+  @keyframes slideBtn {
+    from{color: default;background-color: default};
+    to{color: black;background-color: white};
+  }
+}
 .btn-show {
   display: none;
 }
@@ -277,13 +303,20 @@ section {
   animation-fill-mode: forwards;
   cursor: pointer;
   .blank {
-    background-color: rgba(255, 255, 255, 0.397);
+    animation-name: blank;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+  }
+  @keyframes title{
+    from{font-size: default};
+    to{font-size:10pt;}
+  }
+  @keyframes blank{
+    from{background-color: default};
+    to{background-color: rgba(255, 255, 255, 0.397);}
   }
 }
-@keyframes title{
-  from{font-size: default};
-  to{font-size:10pt;}
-}
+
 a{
   color: black;
 }
