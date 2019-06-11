@@ -1,36 +1,18 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 
-<section class="section-model mt-md-3" style="margin-top: 20pt;">
-  <div class="mobile text-center mb-3">
-    <img [routerLink]="['/home']" src="../../../assets/brand/61202805_433407974137945_1814405193278685184_n.png"
-       alt="">
-  </div>
-
+<section class="section-model mt-5 mt-md-3" style="margin-top: 20pt;">
+  
   <!--Carousel Wrapper-->
-  <div id="carousel-ex" class="carousel slide carousel-fade" data-interval=false data-ride="carousel">
+  <div class="">
     <!--Slides-->
-    <div class="carousel-inner" role="listbox">
+    <div class="" role="listbox">
       <div *ngFor="let sectionModel of sectionModels; let i = index" class="carousel-item"
         [class.active]="i == 0 ? true : false">
-
-        <img routerLink="/collections/{{sectionModel.category | lowercase}}" class="image-slide d-block" [src]="sectionModel.image" alt="First slide">
-        <div class="info-group carousel-caption">
-          <h2 class="m-0 text-light font-weight-bold">{{sectionModel.title}}</h2>
-          <p class="text-light">{{sectionModel.content}}</p>
-          <a routerLink="/collections/{{sectionModel.category | lowercase}}" class="m-0 btn text-light btn-black">{{sectionModel.btn_title}}</a>
-        </div>
+        <img class="image-slide d-block" [src]="sectionModel.image" alt="First slide">
       </div>
     </div>
-    <!--/.Slides-->
-    <!--Controls-->
-    <a class="carousel-control-prev" style="width: 7%" href="#carousel-ex" role="button" data-slide="prev">
-      <span class="fas fa-angle-left" aria-hidden="true"></span>
-    </a>
-    <a class="carousel-control-next" style="width: 7%" href="#carousel-ex" role="button" data-slide="next">
-      <span class="fas fa-angle-right" aria-hidden="true"></span>
-    </a>
-    <!--/.Controls-->
+    
   </div>
   <!--/.Carousel Wrapper-->
 

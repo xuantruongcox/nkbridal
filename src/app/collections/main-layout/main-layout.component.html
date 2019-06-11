@@ -1,14 +1,14 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 <!--  -->
-<div class="container d-flex flex-column">
-  <h3 class="my-4 text-center text-uppercase font-weight-bold">{{title}}</h3>
-  
+<div class="container">
+  <h3 class="mt-5 text-center text-uppercase font-weight-bold">{{title}}</h3>
+  <hr class="mt-1 mb-3">
 </div>
 <!--  -->
 
 
-<div class="container text-center mt-3 mb-4">
+<div class="container text-center mt-2 mb-4">
   <pagination-controls class="pagination animated fadeIn" autoHide=true responsive=true nextLabel="" previousLabel="" (pageChange)="p = $event">
   </pagination-controls>
   <div class="row">
