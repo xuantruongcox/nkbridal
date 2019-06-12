@@ -1,29 +1,15 @@
-<nav class="navbar navbar-expand-md fixed-top-custom blue navbar-light animated fadeIn">
-  <div class="container">
-    <div class="row">
+<nav style="z-index: 10;" class="navbar navbar-expand-lg py-2 p-lg-0 sticky-top blue navbar-light animated fadeIn">
+  <div class="navbar-toggler">
+    <div class="d-lg-none d-inline-flex align-items-center control">
+        <a style="color: black !important;font-size: 30px" class="fas fa-bars mr-2 align-self-center" data-toggle="collapse"
+        data-target=".collapse"></a>
 
-      <div class="col-12 flex-center pr-4">
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target=".collapse"
-          aria-controls="navbarSupportedContent1" aria-expanded=false aria-label="Toggle navigation"><span
-            class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span></button>
-
-        <div class="mobile-device flex-center">
-          <div class="d-inline">
-            <i [routerLink]="['/home']" class="fas fa-home d-inline" style="margin-right: 8pt"></i>
-          </div>
-          <div class="">
-            <div class="d-inline" style="margin-right:8pt">
-              <a style="color: black !important" target="_blank" href="https://fb.com/nkbridalaustralia"
-                class="fab fa-facebook bg"></a>
-            </div>
-            <div class="d-inline">
-              <a style="color: black !important" target="_blank" href="https://instagram.com/nkbridalaustralia"
-                class="fab fa-instagram"></a>
-            </div>
-          </div>
-        </div>
-
-
+      <div class="" style="font-size:18px">
+        <a style="color: black !important" [routerLink]="['/home']" class="fas fa-home"></a>
+        <a style="color: black !important" target="_blank" href="https://fb.com/nkbridalaustralia"
+          class="fab fa-facebook mx-2"></a>
+        <a style="color: black !important" target="_blank" href="https://instagram.com/nkbridalaustralia"
+          class="fab fa-instagram"></a>
       </div>
     </div>
   </div>
@@ -32,41 +18,41 @@
 
 
   <!-- Navbar links -->
-  <div class="navbar-collapse p-0 collapse" id="navbarCollapse">
-    <ul class="navbar-nav h-100 d-flex align-items-center">
+  <div class="navbar-collapse collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav h-100 m-auto">
       <li class="nav-item">
-        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
           [routerLink]="['/collections/formal']">FORMAL</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
           [routerLink]="['/collections/wedding']">BRIDAL</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
           [routerLink]="['/collections/bridesmaid']">BRIDESMAIDS</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
           [routerLink]="['/collections/uncategorised']">Special Offers</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
           [routerLink]="['/return-exchange']">Return and exchange</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450" [routerLink]="['/about-us']">ABOUT
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold" [routerLink]="['/about-us']">ABOUT
           US</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
           [routerLink]="['/contact-us']">Contact Us</a>
       </li>
 
       <li class="nav-item ">
-        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:450"
-          [routerLink]="['/collections/uncategorised']">Real People, Real Story</a>
+        <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
+          routerLink="">Real People, Real Story</a>
       </li>
     </ul>
   </div>

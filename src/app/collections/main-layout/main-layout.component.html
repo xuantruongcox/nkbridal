@@ -2,14 +2,15 @@
 <app-navbar></app-navbar>
 <!--  -->
 <div class="container">
-  <h3 class="mt-5 text-center text-uppercase font-weight-bold">{{title}}</h3>
+  <h3 class="mt-3 text-center text-uppercase font-weight-bold">{{title}}</h3>
   <hr class="mt-1 mb-3">
 </div>
 <!--  -->
 
 
 <div class="container text-center mt-2 mb-4">
-  <pagination-controls class="pagination animated fadeIn" autoHide=true responsive=true nextLabel="" previousLabel="" (pageChange)="p = $event">
+  <pagination-controls class="pagination animated fadeIn" autoHide=true responsive=true nextLabel="" previousLabel=""
+    (pageChange)="p = $event">
   </pagination-controls>
   <div class="row">
     <div *ngFor="let list of lists| paginate: { itemsPerPage: 16, currentPage: p }; let i = index"
@@ -34,14 +35,14 @@
           </ng-template>
 
         </div>
-        <img routerLink="/products/{{route}}/{{list.id}}" class="img-model border d-block" [src]="list.image"
-          alt="">
+        <img routerLink="/products/{{route}}/{{list.id}}" class="img-model border d-block" [src]="list.image" alt="">
       </div>
       <p class="font-weight-bold mt-2 mb-0">{{list.name}}</p>
-      <p class="text-muted">{{list.price | currency}}</p>
+      <!-- <p class="text-muted">{{list.price | currency}}</p> -->
     </div>
   </div>
-  <pagination-controls class="pagination flex-center" autoHide=true responsive=true nextLabel="" previousLabel="" (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls class="pagination flex-center" autoHide=true responsive=true nextLabel="" previousLabel=""
+    (pageChange)="p = $event"></pagination-controls>
 
 </div>
 <div id="quick" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="quick" aria-hidden="true">

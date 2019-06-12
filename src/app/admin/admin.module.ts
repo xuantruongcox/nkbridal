@@ -1,3 +1,4 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { MainLayoutComponent } from './../collections/main-layout/main-layout.component';
 import { Http, HttpModule } from '@angular/http';
 import { UncategorisedProductComponent } from './../collections/products/uncategorised/uncategorised.component';
@@ -21,17 +22,15 @@ import { WeddingDressesComponent } from './../collections/wedding-dresses/weddin
 import { AdminRoutingModule } from './admin-routing.module';
 import { WeddingDressesProductComponent } from '../collections/products/wedding-dresses/wedding-dresses.component';
 import { BridesmaidProductComponent } from '../collections/products/bridesmaid-product/bridesmaid-product.component';
-import { Info } from '../collections/info-property';
-import 'jquery';
-import 'popper.js';
-import 'bootstrap';
-import 'bootstrap-material-design';
+import {MDBBootstrapModule, DropdownModule} from 'angular-bootstrap-md';
 import 'aws-sdk';
+import {CarouselModule} from 'ngx-owl-carousel-o';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {NgxPaginationModule} from 'ngx-pagination';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewProductComponent } from '../collections/products/view-product/view-product.component';
 import { QuickViewComponent } from '../collections/products/quick-view/quick-view.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     ObjectComponent,
@@ -56,13 +55,17 @@ import { QuickViewComponent } from '../collections/products/quick-view/quick-vie
     MainLayoutComponent
   ],
   imports: [
+    RouterModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
     FormsModule,
     CommonModule,
     AdminRoutingModule,
-    SlickCarouselModule,
-    NgxPaginationModule
+    CarouselModule,
+    MDBBootstrapModule,
+    DropdownModule,
+    NgxPaginationModule,
   ]
 })
 export class AdminModule { }

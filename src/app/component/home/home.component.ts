@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import 'bootstrap'
 import { NguCarouselConfig } from '@ngu/carousel';
 import { NguButton, CarouselInterval, Transfrom } from '@ngu/carousel/lib/ngu-carousel/ngu-carousel';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -31,7 +32,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getFormal();
     // ==================
-    this.getShowSlide();
     // ==================
     this.getShowCategories();
     // ==================
@@ -57,50 +57,30 @@ export class HomeComponent implements OnInit {
   /*  */
 
   // Show Product
-  slideConfig = {
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    nextArrow: "#next",
-    prevArrow: "#prev",
-    dots: true,
-    infinite: false,
-    responsive: [{
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: true,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 500,
+    navText:['<a class="fas fa-angle-left fa-2x"></a>','<a class="fas fa-angle-right fa-2x"></a>'],
+    
+   responsive: {
+      0: {
+        items: 1
+      },
+      768: {
+        items: 3
+      },
+      965: {
+        items: 4
       }
-    },{
-      breakpoint: 995,
-      settings:{
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        dots:false,
-      }
-    },{
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      }
-    },{
-      breapoint: 1600,
-      settings:{
-        slidesToShow: 4,
-        slidesToScroll: 1,
-      }
-    }]
-
-  };
-  // Head Slide
-  getShowSlide(){
-    this.service.getSlideInfo()
-      .subscribe(res=>{
-        this.sectionModels = res;
-      })
+    },
+    nav: true
   }
-  adminSlideControl;
+  // Head Slide
+  
   // Show Categories
   getShowCategories(){
     this.service.getCategoriesShow()

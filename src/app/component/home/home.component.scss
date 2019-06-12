@@ -14,10 +14,45 @@
     }
   }
 }
+@media only screen and (min-width: 1024px) {
+  .sectionEnd {
+    position: relative;
+    .text-absolute {
+      h1 {
+        font-size: 50px;
+      }
+    }
+    div {
+      div {
+        img {
+          width: 100% !important;
+          height: 20rem !important;
+        }
+      }
+    }
+  }
+}
 @media only screen and (max-width: 768px) {
-  #carousel-ex{
-    a{
-      span{
+  .sectionEnd {
+    .text-absolute {
+      bottom: 5rem !important;
+    }
+    div {
+      img {
+        width: 100% !important;
+        height: 20rem !important;
+      }
+    }
+  }
+  .mt-custom {
+    margin-top: 60px;
+  }
+  .text-mobile-big {
+    font-size: 30px !important;
+  }
+  #carousel-ex {
+    a {
+      span {
         font-size: 30px;
       }
     }
@@ -29,8 +64,8 @@
       left: 0px;
       right: 0px;
     }
-  
-    .category-image{
+
+    .category-image {
       height: 100% !important;
     }
   }
@@ -58,7 +93,6 @@
   }
   .double {
     font-weight: bold;
-    font-family: "Times New Roman";
     font-size: 13pt;
   }
   .parent:hover {
@@ -102,7 +136,6 @@
   right: 0;
   text-align: center;
   top: 50%; /* Adjust this value to move the positioned div up and down */
-  font-family: Arial, sans-serif;
   color: #000000;
   height: 20%;
   width: 80%; /* Set the width of the positioned div */
@@ -120,10 +153,8 @@ h3 {
 
 h3.background {
   position: relative;
-  z-index: 1;
-
   &:before {
-    border-top: 2px solid #dfdfdf;
+    border-top: 2px solid #ffffff;
     content: "";
     margin: 0 auto; /* this centers the line to the full width specified */
     position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
@@ -137,7 +168,7 @@ h3.background {
 
   span {
     /* to hide the lines from behind the text, you have to set the background color the same as the container */
-    background-color: red;
+    background-color: #FAFAFA !important;
     padding: 0 15px;
   }
 }
@@ -162,12 +193,35 @@ h3.double:after {
   z-index: -1;
 }
 
+.sectionEnd {
+  position: relative;
+  .text-absolute {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 16rem;
+    left: 0px;
+    right: 0px;
+
+    h1 {
+      margin: auto;
+    }
+  }
+  div {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+}
+
 .shop {
-  height: 22rem;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position-y: 75%;
-  overflow: hidden;
+  /* The image used */
+  /* Full height */
 }
 .btn-dark {
   background-color: black !important;
@@ -216,7 +270,6 @@ section {
 }
 // image type
 .title {
-  font-family: "Lucida Sans";
   color: black !important;
   text-align: center;
   padding-top: 95%;
@@ -247,31 +300,34 @@ section {
   font-size: 0pt;
 }
 
-.info-group{
+.info-group {
   left: 100pt;
   top: 180pt;
   text-align: left;
   line-height: 12pt;
-  
 }
-#carousel-ex{
-  a{
-    span{
+#carousel-ex {
+  a {
+    span {
       font-size: 25px;
     }
   }
 }
-.info-group{
-
-  a:hover{
+.info-group {
+  a:hover {
     animation-name: slideBtn;
     animation-duration: 500ms;
     animation-fill-mode: forwards;
-    
   }
   @keyframes slideBtn {
-    from{color: default;background-color: default};
-    to{color: black;background-color: white};
+    from {
+      color: default;
+      background-color: default;
+    }
+    to {
+      color: black;
+      background-color: white;
+    }
   }
 }
 .btn-show {
@@ -293,60 +349,73 @@ section {
     height: 60px;
     padding: auto;
   }
-  
 }
 
 .link-parent:hover {
-  animation-name: title;
-  -webkit-animation-name: title;
-  animation-duration: 500ms;
-  animation-timing-function: cubic-bezier(0.06,1.06,0.76,0.35);
-  animation-fill-mode: forwards;
+  p {
+    animation-name: title;
+    -webkit-animation-name: title;
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0.1, 1.28, 0.87, 0.93);
+    animation-fill-mode: forwards;
+  }
   cursor: pointer;
   .blank {
     animation-name: blank;
     animation-duration: 700ms;
     animation-fill-mode: forwards;
   }
-  @keyframes title{
-    from{font-size: default};
-    to{font-size:10pt;}
+  @keyframes title {
+    from {
+      font-size: default;
+    }
+    to {
+      font-size: 15pt;
+    }
   }
-  @keyframes blank{
-    from{background-color: default};
-    to{background-color: rgba(255, 255, 255, 0.397);}
+  @keyframes blank {
+    from {
+      background-color: default;
+    }
+    to {
+      background-color: rgba(255, 255, 255, 0.397);
+    }
   }
 }
 
-a{
+a {
   color: black;
 }
 
-.slide-images{
+.slide-images {
   height: 24rem;
   width: 16rem;
 }
 
-.category-image{
+.category-image {
   height: 35rem;
   width: 100%;
 }
-.category-image{
-
+.category-image {
 }
-.btn:hover{
+.btn:hover {
   color: black !important;
 }
 
 .text-mobile-big {
-  display: flex;
-  padding-top:30pt;
+  color: white;
   animation-duration: 3s;
-  animation-delay: s;
+  animation-delay: 1s;
   animation-iteration-count: infinite;
 }
 
-.image-slide{
-  height: 100%;
+.text-dark {
+  color: black !important;
+}
+.brand {
+  height: 5rem;
+}
+
+.image-slide {
   width: 100%;
 }

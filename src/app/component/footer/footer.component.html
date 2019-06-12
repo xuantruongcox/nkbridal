@@ -1,4 +1,4 @@
-<footer *ngIf="footer" class="page-footer font-small blue pt-4">
+<footer *ngIf="footer" class="page-footer font-sm blue pt-4">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -7,12 +7,14 @@
       <div class="row">
   
         <!-- Grid column -->
-        <div class="col-md-6 mt-md-0 mt-3">
+        <div class="col-md-12 mt-md-0 text-light mt-3">
           <!-- Content -->
-          <h5 class="text-uppercase">{{footer.Title}}</h5>
-          <p>{{footer.Address}}</p>
-          <p>0{{footer.NumPhone}}</p>          
-          <p>{{footer.Email}}</p>
+          <h5 class="text-uppercase font-weight-bold" style="font-size: 30px">{{footer.Title}}</h5>
+          <h5>{{footer.by | uppercase}}</h5>
+          <p class="h4">ABN: {{footer.ABN}}</p>
+          <p class="h4">Address: {{footer.Address}}</p>
+          <p class="h4">Phone: {{footer.NumPhone}}</p>          
+          <p class="h4">Email: {{footer.Email}}</p>
         </div>
         <!-- Grid column -->
 
@@ -28,8 +30,8 @@
     <!-- Footer Links -->
   
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2019 Copyright:
-      <a href="#">{{footer.Copyright}}</a>
+    <div class="footer-copyright h5 text-light text-center py-3">© 2019 Copyright:
+      <a class="text-light">{{footer.Copyright}}</a>
     </div>
     <!-- Copyright -->
   

@@ -13,11 +13,13 @@ export class UncategorisedComponent implements OnInit {
   route = 'uncategorised';
   uncategorisedQuickView: Info;
   idFormal;
-  title = "QUICK VIEW"
+  title = "Special Offers"
   lists: Info[];
   thumbImg;
   adminIsLoggedIn = false;
   fadeOut = false;
+  p: number = 1;
+  collection: any[];
   constructor(private service: ListService, private auth: AuthService, private apiService: ApiServiceService) {
     this.adminIsLoggedIn = this.auth.isLoggedInAdmin;
   }
