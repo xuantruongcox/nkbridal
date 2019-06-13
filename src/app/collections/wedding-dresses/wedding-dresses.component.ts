@@ -11,7 +11,7 @@ import { ListService } from 'src/app/list.service';
   styleUrls: ['./wedding-dresses.component.scss']
 })
 export class WeddingDressesComponent implements OnInit {
-  route = 'wedding'
+  route = 'Wedding'
   quickView: Info;
   title = "Wedding Dresses"
   lists: Info[];
@@ -24,18 +24,7 @@ export class WeddingDressesComponent implements OnInit {
     this.adminIsLoggedIn = this.auth.isLoggedInAdmin;
   }
   ngOnInit() {
-    setTimeout(() => {
-      this.getWedding()
-    },100)
-
-  }
-
-  getWedding() {
-    this.apiService.getAllInfo(this.route)
-      .subscribe(res => {
-        this.lists = res;
-        this.collection = res;
-      })
+  
   }
  
 }

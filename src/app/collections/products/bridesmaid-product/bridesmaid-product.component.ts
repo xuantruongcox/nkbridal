@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class BridesmaidProductComponent implements OnInit {
   @Output()bride: Info;
-  routeBride = 'bridesmaid';
+  routeBride = 'Bridesmaid';
   constructor(private route: ActivatedRoute, private listService: ListService, private location: Location,private apiService: ApiServiceService) { }
   ngOnInit() {
     this.getBride();

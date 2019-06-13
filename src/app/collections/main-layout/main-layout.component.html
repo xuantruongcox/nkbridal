@@ -15,27 +15,28 @@
   <div class="row">
     <div *ngFor="let list of lists| paginate: { itemsPerPage: 16, currentPage: p }; let i = index"
       class="col-md-4 col-lg-3 col-12 mb-3 animated">
-      <div class="model-parent">
+      <div class="model-parent text-center">
         <div class="btn-group">
-          <ng-template [ngIf]="!adminIsLoggedIn">
+          <ng-template [ngIf]="adminIsLoggedIn">
             <a (click)="openQuickView(list.id)"
               class="d-none btn btn-sm blue text-dark font-weight-bold animated fadeIn" data-toggle="modal"
               data-target="#quick">QUICK VIEW</a>
           </ng-template>
 
-          <ng-template [ngIf]="adminIsLoggedIn">
-            <div class="btn-admin w-100">
-
+          <ng-template [ngIf]="!adminIsLoggedIn">
+            <div class="btn-admin">
               <a [routerLink]="['/home/upload']"
-                class="d-block mb-3 btn btn-sm blue text-dark font-weight-bold animated fadeIn">Edit</a>
-              <a (click)="deleteProduct(list.id);"
-                class="btn d-block btn-sm blue text-dark font-weight-bold animated fadeIn">DELETE</a>
+                class="btn blue text-dark font-weight-bold animated fadeIn mb-3">Edit</a>
+              <a (click)="deleteProduct(list.id,list.category,list.s3_image);"
+                class="btn blue text-dark font-weight-bold animated fadeIn">DELETE</a>
             </div>
 
           </ng-template>
 
         </div>
-        <img routerLink="/products/{{route}}/{{list.id}}" class="img-model border d-block" [src]="list.image" alt="">
+        <div class="img">
+          <img routerLink="/products/{{route | lowercase}}/{{list.id}}" class="img-fluid" [src]="list.image" alt="">
+        </div>
       </div>
       <p class="font-weight-bold mt-2 mb-0">{{list.name}}</p>
       <!-- <p class="text-muted">{{list.price | currency}}</p> -->

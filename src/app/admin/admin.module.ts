@@ -30,7 +30,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewProductComponent } from '../collections/products/view-product/view-product.component';
 import { QuickViewComponent } from '../collections/products/quick-view/quick-view.component';
+import { RealPeopleComponent } from '../collections/real-people/real-people.component';
 import { RouterModule } from '@angular/router';
+import { RealPeopleProductComponent } from '../collections/products/real-people-product/real-people-product.component';
 @NgModule({
   declarations: [
     ObjectComponent,
@@ -52,7 +54,9 @@ import { RouterModule } from '@angular/router';
     ContactUsComponent,
     UncategorisedComponent,
     UncategorisedProductComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    RealPeopleComponent,
+    RealPeopleProductComponent
   ],
   imports: [
     RouterModule,

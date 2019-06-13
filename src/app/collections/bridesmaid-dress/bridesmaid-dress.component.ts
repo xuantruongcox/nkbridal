@@ -24,18 +24,8 @@ export class BridesmaidDressComponent implements OnInit {
     this.adminIsLoggedIn = this.auth.isLoggedInAdmin;
   }
   ngOnInit() {
-    setTimeout(() => {
-      this.getBride()
-    },100)
+
 
   }
 
-  
-  getBride() {
-    this.apiService.getAllInfo(this.route)
-      .subscribe(res => {
-        this.collection= res;
-        this.lists = res;
-      })
-  }
 }

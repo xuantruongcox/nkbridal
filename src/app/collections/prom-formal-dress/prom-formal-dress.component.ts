@@ -10,7 +10,7 @@ import { ListService } from 'src/app/list.service';
   styleUrls: ['./prom-formal-dress.component.scss']
 })
 export class PromFormalDressComponent implements OnInit {
-  route = 'formal';
+  route = 'Formal';
   formalQuickView: Info;
   idFormal;
   title = "Formal Dress"
@@ -24,20 +24,8 @@ export class PromFormalDressComponent implements OnInit {
     this.adminIsLoggedIn = this.auth.isLoggedInAdmin;
   }
   ngOnInit() {
-    setTimeout(() => {
-      this.getInfoFormal()
-    }, 100)
-
-  }
 
 
-  getInfoFormal() {
-
-    this.apiService.getAllInfo(this.route)
-      .subscribe(res => {
-        this.lists = res;
-        this.collection = res;
-      })
   }
 
 

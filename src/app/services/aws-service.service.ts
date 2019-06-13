@@ -19,7 +19,7 @@ export class AwsServiceService {
 
   }
 
-  uploadFile(albumName, files,id) {
+  uploadFile(albumName, files, id) {
     let pool;
 
     this.service.getSetting()
@@ -34,7 +34,7 @@ export class AwsServiceService {
           apiVersion: '2006-03-01'
         });
         // START
-        
+
         for (let i = 0; i < files.length; i++) {
           let params = {
             Bucket: 'nkbridal-data' + `/${albumName}-Album`,
@@ -47,6 +47,7 @@ export class AwsServiceService {
               alert(err)
             } else {
               let paramsThumb = {
+                "s3_image": params.Key,
                 "id_product": id,
                 "image": data.Location
               }
@@ -57,8 +58,36 @@ export class AwsServiceService {
               localStorage.setItem("image", data.Location)
             }
           })
-        
+
         }
+      })
+  }
+  deleteFile(albumName, files) {
+    let pool;
+
+    this.service.getSetting()
+      .subscribe(res => {
+
+        pool = res[0].value;
+        AWS.config.region = 'ap-southeast-2'
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+          IdentityPoolId: pool,
+        })
+        let s3 = new AWS.S3({
+          apiVersion: '2006-03-01'
+        });
+        // START
+          let params = {
+            Bucket: 'nkbridal-data' + `/${albumName}-Album`,
+            Key: files,
+          }
+          s3.deleteObject(params, (err, data) => {
+            if(err)
+            {
+              console.log(data)
+            }
+          })
+
       })
   }
 }

@@ -14,14 +14,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./admin.component.scss']
 })
 
+
 export class AdminComponent implements OnInit {
   info = new UploadProducts;
   getLinkImage;
-
+  disable = false;
   options = [
     "Formal",
     "Wedding",
     "Bridesmaid",
+    "Special-offers",
+    "RPRS"
   ];
   optionSelected;
   constructor(public service: ApiServiceService, public awsService: AwsServiceService) {
@@ -33,7 +36,8 @@ export class AdminComponent implements OnInit {
   /* Upload METHOD */
 
   uploadImage(albumName, info) {
-    alert("Waiting...");                    
+    alert("Waiting...");
+    this.disable = true;
     /* Config s3*/
 
     /* /.Config s3 */
@@ -43,59 +47,63 @@ export class AdminComponent implements OnInit {
     let files = fileInput.files
 
     // s3 upload singlefile
-    this.service.getSetting()
-      .subscribe(res => {
-        let pool = res[0].value;
-        pool = res[0].value;
-        AWS.config.region = 'ap-southeast-2'
-        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-          IdentityPoolId: pool,
-        })
-        let s3 = new AWS.S3({
-          apiVersion: '2006-03-01'
-        });
-        // start upload
-        let params = {
-          Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-          Key: singleFile.name,
-          Body: singleFile,
-          ACL: 'public-read',
-        }
-        if(info == null){
-          alert("Please insert into form");
-          return false;
-        }else if (this.optionSelected == null) {
-          alert("Please Choose Category")
-          return false;
-        } else {
-          s3.upload(params, (err, data) => {
-            if (err) {
-              alert(err)
-            } else {
-              setTimeout(() => {
-                info.image = data.Location
-                this.service.addProducts(info)
-                  .subscribe(res => {
-                    let id = res.insertId
-                    this.awsService.uploadFile(albumName, files, id)
-                  },err,()=>{
-                    setTimeout(()=>{
-                      alert("Completed.!!!");
-                      info = [
-                        info.name = null,
-                        info.price = null,
-                        info.content = null,
-                        fileInput.value = "",
-                        fileInputSingle.value = "",
-                        info.category = null,
-                      ];
-                    },100)
-                  })
-              }, 100)
-            }
+    if (albumName && info) {
+      this.service.getSetting()
+        .subscribe(res => {
+          let pool = res[0].value;
+          pool = res[0].value;
+          AWS.config.region = 'ap-southeast-2'
+          AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: pool,
           })
-        }
-      })
+          let s3 = new AWS.S3({
+            apiVersion: '2006-03-01'
+          });
+          // start upload
+          let params = {
+            Bucket: 'nkbridal-data' + `/${albumName}-Album`,
+            Key: singleFile.name,
+            Body: singleFile,
+            ACL: 'public-read',
+          }
+          if (this.optionSelected == null) {
+            alert("Please Choose Category")
+            return false;
+          } else {
+            s3.upload(params, (err, data) => {
+              if (err) {
+                alert(err)
+              } else {
+                setTimeout(() => {
+                  info.image = data.Location
+                  info.s3_image = singleFile.name;
+                  this.service.addProducts(info)
+                    .subscribe(res => {
+                      let id = res.insertId
+                      this.awsService.uploadFile(albumName, files, id)
+                    }, err, () => {
+                      setTimeout(() => {
+                        alert("Completed.!!!");
+                        info = [
+                          info.name = null,
+                          info.price = null,
+                          info.content = null,
+                          fileInput.value = "",
+                          fileInputSingle.value = "",
+                          info.category = null,
+                        ];
+                        this.disable = false;
+                      }, 100)
+                    })
+                }, 100)
+              }
+            })
+          }
+        })
+    }else{
+      alert("Please insert into form");
+      this.disable = false;
+    }
 
 
   }

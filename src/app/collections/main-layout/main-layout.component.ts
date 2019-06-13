@@ -1,7 +1,8 @@
+import { AwsServiceService } from './../../services/aws-service.service';
 import { ApiServiceService } from './../../services/api-service.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Info } from '../info-property';
-
+import * as AWS from 'aws-sdk';
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
@@ -18,9 +19,10 @@ export class MainLayoutComponent implements OnInit {
   @Input() fadeOut = false;
   @Input() p: number = 1;
   @Input() collection: any[];
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService, private awsService: AwsServiceService) { }
 
   ngOnInit() {
+    this.getInfo()
   }
 
   getInfo() {
@@ -32,17 +34,27 @@ export class MainLayoutComponent implements OnInit {
       })
   }
 
-  deleteProduct(id: number) {
-
-    this.apiService.deleteProduct(id)
+  deleteProduct(id: number, albumName, delSingleFile) {
+    // s3_Delete
+    this.apiService.getThumb(id)
       .subscribe(res => {
-        this.apiService.deleteThumbnail(res)
-          .subscribe(resThumb => {
-
-            console.log(resThumb);
+        this.awsService.deleteFile(albumName, delSingleFile)
+        setTimeout(() => {
+          for (let i = 0; i < res.length; i++) {
+            this.awsService.deleteFile(albumName, res[i].s3_image)
+            console.log(res[i].s3_image)
+          }
+        })
+        this.apiService.deleteProduct(id)
+          .subscribe(res => {
+            this.apiService.deleteThumbnail(res)
+              .subscribe(resThumb => {
+                return this.ngOnInit();
+              })
           })
-          return this.getInfo();
       })
+    /* /.S3_DELETE */
+
   }
 
   openQuickView(id) {

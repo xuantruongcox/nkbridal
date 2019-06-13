@@ -32,6 +32,13 @@
     }
   }
 }
+@media only screen and (max-width: 992px) {
+  .img {
+    img {
+      height: 350px !important;
+    }
+  }
+}
 @media only screen and (max-width: 768px) {
   .sectionEnd {
     .text-absolute {
@@ -64,9 +71,10 @@
       left: 0px;
       right: 0px;
     }
-
-    .category-image {
-      height: 100% !important;
+    .img {
+      img {
+        height: 500px !important;
+      }
     }
   }
   .carousel-caption {
@@ -168,7 +176,7 @@ h3.background {
 
   span {
     /* to hide the lines from behind the text, you have to set the background color the same as the container */
-    background-color: #FAFAFA !important;
+    background-color: #fafafa !important;
     padding: 0 15px;
   }
 }
@@ -219,10 +227,6 @@ h3.double:after {
   }
 }
 
-.shop {
-  /* The image used */
-  /* Full height */
-}
 .btn-dark {
   background-color: black !important;
   border: none;
@@ -392,11 +396,10 @@ a {
   width: 16rem;
 }
 
-.category-image {
-  height: 35rem;
-  width: 100%;
-}
-.category-image {
+.img {
+  img {
+    height: 480px;
+  }
 }
 .btn:hover {
   color: black !important;

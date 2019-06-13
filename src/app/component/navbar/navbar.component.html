@@ -1,4 +1,4 @@
-<nav style="z-index: 10;" class="navbar navbar-expand-lg py-2 p-lg-0 sticky-top blue navbar-light animated fadeIn">
+<nav style="z-index: 10;" class="navbar navbar-expand-lg py-2 p-lg-0 sticky-top {{isSticky == true ? 'sticky-top-mobile':''}} blue navbar-light animated fadeIn">
   <div class="navbar-toggler">
     <div class="d-lg-none d-inline-flex align-items-center control">
         <a style="color: black !important;font-size: 30px" class="fas fa-bars mr-2 align-self-center" data-toggle="collapse"
@@ -34,7 +34,7 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
-          [routerLink]="['/collections/uncategorised']">Special Offers</a>
+          [routerLink]="['/collections/special-offers']">Special Offers</a>
       </li>
       <li class="nav-item">
         <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
@@ -52,7 +52,7 @@
 
       <li class="nav-item ">
         <a class="nav-link h-100 p-3" style="color:white !important;font-weight:bold"
-          routerLink="">Real People, Real Story</a>
+          routerLink="/collections/real-people">Real People, Real Story</a>
       </li>
     </ul>
   </div>

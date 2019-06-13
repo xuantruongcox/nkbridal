@@ -65,16 +65,15 @@ export class HomeComponent implements OnInit {
     dots: false,
     navSpeed: 500,
     navText:['<a class="fas fa-angle-left fa-2x"></a>','<a class="fas fa-angle-right fa-2x"></a>'],
-    
    responsive: {
       0: {
         items: 1
       },
       768: {
-        items: 3
+        items: 2
       },
-      965: {
-        items: 4
+      1024:{
+        items: 3
       }
     },
     nav: true

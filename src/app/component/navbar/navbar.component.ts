@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import * as $ from 'jquery';
 @Component({
   selector: 'app-navbar',
@@ -12,5 +12,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     
   }
+  isSticky: boolean = false;
 
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    this.isSticky = window.pageYOffset >= 250;
+  }
 }

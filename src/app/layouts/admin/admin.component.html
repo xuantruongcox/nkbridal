@@ -42,7 +42,7 @@
             </div>
             <!-- Button upload -->
             <div class="form-group text-right">
-                <button (click)="uploadImage(optionSelected=info.category,info)" class="btn btn-blue text-light">Upload</button>
+                <button (click)="uploadImage(optionSelected=info.category,info)" aria-disabled=true class="btn btn-blue text-light" [class.disabled]="disable">Upload</button>
             </div>
         </div>
 

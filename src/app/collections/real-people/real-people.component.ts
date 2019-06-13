@@ -5,15 +5,15 @@ import { Component, OnInit } from '@angular/core';
 import { Info } from '../info-property';
 
 @Component({
-  selector: 'app-uncategorised',
-  templateUrl: './uncategorised.component.html',
-  styleUrls: ['./uncategorised.component.scss']
+  selector: 'app-real-people',
+  templateUrl: './real-people.component.html',
+  styleUrls: ['./real-people.component.scss']
 })
-export class UncategorisedComponent implements OnInit {
-  route = 'Special-offers';
-  uncategorisedQuickView: Info;
+export class RealPeopleComponent implements OnInit {
+  route = 'RPRS';
+  formalQuickView: Info;
   idFormal;
-  title = "Special Offers"
+  title = "real people, real story"
   lists: Info[];
   thumbImg;
   adminIsLoggedIn = false;
@@ -23,10 +23,8 @@ export class UncategorisedComponent implements OnInit {
   constructor(private service: ListService, private auth: AuthService, private apiService: ApiServiceService) {
     this.adminIsLoggedIn = this.auth.isLoggedInAdmin;
   }
+
   ngOnInit() {
-
-
   }
-
 
 }

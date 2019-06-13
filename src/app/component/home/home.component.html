@@ -2,21 +2,23 @@
 <app-navbar></app-navbar>
 
 <!--  -->
-<section class="section-style mt-2">
+<div class="section-style mt-2">
   <div class="container">
     <div class="row">
-      <div *ngFor="let sectionStyle of sectionStyles" class="col-md-4 col-12 overflow-hidden p-md-0">
+      <div *ngFor="let sectionStyle of sectionStyles" class="col-md-4 px-0">
         <div routerLink="/collections/{{sectionStyle.title | lowercase}}"
           class="link-parent text-center flex-center mx-2 my-2 my-md-0 position-relative">
           <div class="position-absolute blank w-100 h-100"></div>
           <p class="h2-responsive text-uppercase flex-center font-weight-bold" style="color: white !important">
             {{sectionStyle.title}}</p>
-          <img class="category-image rounded" [src]="sectionStyle.image" alt="">
+          <div class="img">
+            <img class=" img-fluid img-thumbnail rounded" [src]="sectionStyle.image" alt="">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 <!--  -->
 <section class="section-welcome">
   <div class="container">
@@ -44,7 +46,7 @@
 
 </section>
 <!--  -->
-<section class="section-slide mb-4">
+<section class="section-slide d-none d-md-block mb-4">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -58,6 +60,7 @@
               <div class="slide d-flex justify-content-center">
                 <div class="card">
                   <img class="slide-images card-img-top" [src]="slide.image" alt="Card image">
+
                   <div class="card-body text-center">
                     <h5 style="font-size: 13pt;" class="w-100 font-weight-bold card-title">{{slide.name}}</h5>
                     <a (click)="openQuickView(slide.id)" data-target="#quick" data-toggle="modal"

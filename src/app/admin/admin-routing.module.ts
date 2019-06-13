@@ -17,6 +17,8 @@ import { WeddingDressesProductComponent } from '../collections/products/wedding-
 import { BridesmaidProductComponent } from '../collections/products/bridesmaid-product/bridesmaid-product.component';
 import { AdminGuard } from './../auth/admin.guard';
 import { ReturnExchangeComponent } from '../component/return-exchange/return-exchange.component';
+import { RealPeopleComponent } from '../collections/real-people/real-people.component';
+import { RealPeopleProductComponent } from '../collections/products/real-people-product/real-people-product.component';
 const adminRoutes: Routes = [
   {
     path: 'home',
@@ -39,14 +41,16 @@ const adminRoutes: Routes = [
   { path: 'collections/wedding', component: WeddingDressesComponent },
   { path: 'collections/formal', component: PromFormalDressComponent },
   { path: 'collections/bridesmaid', component: BridesmaidDressComponent },
-  { path: 'collections/uncategorised', component: UncategorisedComponent },
+  { path: 'collections/special-offers', component: UncategorisedComponent },
+  {path: 'collections/real-people', component: RealPeopleComponent},
   {
     path: 'products', component: MainCollectionsComponent
   },
-  { path: 'products/uncategorised/:id', component: UncategorisedProductComponent },
+  { path: 'products/special-offers/:id', component: UncategorisedProductComponent },
   { path: 'products/formal/:id', component: ObjectComponent },
   { path: 'products/wedding/:id', component: WeddingDressesProductComponent },
   { path: 'products/bridesmaid/:id', component: BridesmaidProductComponent },
+  {path: 'products/realpeople/:id', component: RealPeopleProductComponent},
   {
     path: 'home/upload',
     component: AdminComponent,
