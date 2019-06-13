@@ -42,7 +42,7 @@ const adminRoutes: Routes = [
   { path: 'collections/formal', component: PromFormalDressComponent },
   { path: 'collections/bridesmaid', component: BridesmaidDressComponent },
   { path: 'collections/special-offers', component: UncategorisedComponent },
-  {path: 'collections/real-people', component: RealPeopleComponent},
+  {path: 'collections/rprs', component: RealPeopleComponent},
   {
     path: 'products', component: MainCollectionsComponent
   },
@@ -50,7 +50,7 @@ const adminRoutes: Routes = [
   { path: 'products/formal/:id', component: ObjectComponent },
   { path: 'products/wedding/:id', component: WeddingDressesProductComponent },
   { path: 'products/bridesmaid/:id', component: BridesmaidProductComponent },
-  {path: 'products/realpeople/:id', component: RealPeopleProductComponent},
+  {path: 'products/rprs/:id', component: RealPeopleProductComponent},
   {
     path: 'home/upload',
     component: AdminComponent,

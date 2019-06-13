@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 
 export class UncategorisedProductComponent implements OnInit {
   @Output()uncategorised: Info;
-  routeUncategorised = 'uncategorised';
+  routeUncategorised = 'special-offers';
   constructor(private route: ActivatedRoute, private listService: ListService, private location: Location,private apiService: ApiServiceService) { }
   ngOnInit() {
     this.getUncategorised();

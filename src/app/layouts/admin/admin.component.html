@@ -1,6 +1,6 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
-<div class="container w-100 w-md-50 mt-3 mt-md-5 mb-5 animated fadeIn rounded">
+<div class="container w-100 w-md-50 mt-3 mt-md-5 mb-5 animated fadeIn rounded " aria-disabled=true [class.disabled]="disable">
     <div class="form p-3 white shadow rounded">
         <div class="p-2 white border border-dark">
             <!-- Product Name -->
@@ -19,7 +19,7 @@
             </div>
             <!-- Upload Images Group -->
             <div class="form-group">
-                <p class="mb-0">Choose Thumbnail Image: </p>
+                <p class="mb-0">Choose Thumbnail Images: </p>
                 <input id="product-image" class="input-file" type="file" multiple accept="image/*">
             </div>
             

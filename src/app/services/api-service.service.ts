@@ -74,5 +74,7 @@ export class ApiServiceService {
   }
   /* /.CATEGORIES SHOW */
   /* ===================== */
-
+  /* USERS */
+ 
+  /* /.USERS */
 }

@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     // ==================
     this.getEndHome();
   }
-  constructor(private service: ApiServiceService,private adminControls: AuthService) {
+  constructor(private service: ApiServiceService, private adminControls: AuthService) {
   }
   getFormal() {
     this.service.getAllInfo(this.routeFormal)
@@ -64,33 +64,30 @@ export class HomeComponent implements OnInit {
     pullDrag: false,
     dots: false,
     navSpeed: 500,
-    navText:['<a class="fas fa-angle-left fa-2x"></a>','<a class="fas fa-angle-right fa-2x"></a>'],
-   responsive: {
+    navText: ['<a class="carousel-control-prev text-dark mb-5 fas fa-angle-left fa-2x"></a>', '<a class="carousel-control-next text-dark mb-5 fas fa-angle-right fa-2x"></a>'],
+    responsive: {
       0: {
-        items: 1
+        items: 1,
       },
-      768: {
-        items: 2
-      },
-      1024:{
+      1024: {
         items: 3
       }
     },
     nav: true
   }
   // Head Slide
-  
+
   // Show Categories
-  getShowCategories(){
+  getShowCategories() {
     this.service.getCategoriesShow()
-      .subscribe(res=>{
+      .subscribe(res => {
         this.sectionStyles = res;
       })
   }
   // Footer
-  getEndHome(){
+  getEndHome() {
     this.service.getEndHome()
-      .subscribe(res=>{
+      .subscribe(res => {
         this.sectionEnd = res[0]
       })
   }

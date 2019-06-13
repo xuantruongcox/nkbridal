@@ -1,10 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 body{
+    padding: 0;
     font-family: Georgia, "Times New Roman", Times, serif !important;
-    overflow-x: hidden !important;
     background-repeat: no-repeat;
     background-size: 100%;
 }
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';

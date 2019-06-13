@@ -93,7 +93,7 @@ export class AdminComponent implements OnInit {
                           info.category = null,
                         ];
                         this.disable = false;
-                      }, 100)
+                      }, 1000)
                     })
                 }, 100)
               }

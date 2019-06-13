@@ -17,13 +17,13 @@
       class="col-md-4 col-lg-3 col-12 mb-3 animated">
       <div class="model-parent text-center">
         <div class="btn-group">
-          <ng-template [ngIf]="adminIsLoggedIn">
+          <ng-template [ngIf]="!adminIsLoggedIn">
             <a (click)="openQuickView(list.id)"
               class="d-none btn btn-sm blue text-dark font-weight-bold animated fadeIn" data-toggle="modal"
               data-target="#quick">QUICK VIEW</a>
           </ng-template>
 
-          <ng-template [ngIf]="!adminIsLoggedIn">
+          <ng-template [ngIf]="adminIsLoggedIn">
             <div class="btn-admin">
               <a [routerLink]="['/home/upload']"
                 class="btn blue text-dark font-weight-bold animated fadeIn mb-3">Edit</a>

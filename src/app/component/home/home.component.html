@@ -56,19 +56,21 @@
       <div class="col-12">
         <owl-carousel-o [options]="customOptions">
           <ng-container *ngFor="let slide of sectionSlides">
-            <ng-template carouselSlide [id]="slide.id">
-              <div class="slide d-flex justify-content-center">
-                <div class="card">
-                  <img class="slide-images card-img-top" [src]="slide.image" alt="Card image">
+            <div class="container">
+              <ng-template carouselSlide [id]="slide.id">
+                <div class="slide">
+                  <div class="card">
+                    <img class="slide-images card-img-top" [src]="slide.image" alt="Card image">
 
-                  <div class="card-body text-center">
-                    <h5 style="font-size: 13pt;" class="w-100 font-weight-bold card-title">{{slide.name}}</h5>
-                    <a (click)="openQuickView(slide.id)" data-target="#quick" data-toggle="modal"
-                      class="btn btn-hover blue text-light animated fadeIn">QUICK VIEW</a>
+                    <div class="card-body text-center">
+                      <h5 style="font-size: 13pt;" class="w-100 font-weight-bold card-title">{{slide.name}}</h5>
+                      <a (click)="openQuickView(slide.id)" data-target="#quick" data-toggle="modal"
+                        class="btn btn-hover blue text-light animated fadeIn">QUICK VIEW</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </ng-template>
+              </ng-template>
+            </div>
           </ng-container>
 
         </owl-carousel-o>
