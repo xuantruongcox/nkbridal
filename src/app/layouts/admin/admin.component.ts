@@ -103,6 +103,15 @@ export class AdminComponent implements OnInit {
     }
     /* /.DELTE IMAGE BEFORE UPDATE */
     /* UPDATE */
+    let params;
+    if (singleFile) {
+      params = {
+        Bucket: 'nkbridal-data' + `/${albumName}-Album`,
+        Key: singleFile.name + '-Product',
+        Body: singleFile,
+        ACL: 'public-read',
+      }
+    }
     setTimeout(() => {
       if (singleFile !== undefined && files.length !== 0) {
         alert("Waiting...");
@@ -111,12 +120,7 @@ export class AdminComponent implements OnInit {
 
         // s3 upload singlefile
         // start upload
-        let params = {
-          Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-          Key: singleFile.name,
-          Body: singleFile,
-          ACL: 'public-read',
-        }
+
         if (this.optionSelected == null) {
           alert("Please Choose Category")
           this.disable = false;
@@ -129,11 +133,11 @@ export class AdminComponent implements OnInit {
               setTimeout(() => {
                 info.id = this.snapshotId;
                 info.image = data.Location
-                info.s3_image = singleFile.name;
+                info.s3_image = singleFile.name + '-Product';
                 this.service.editProduct(info)
                   .subscribe(res => {
                     let id = this.snapshotId
-                    this.awsService.uploadFile(albumName, files, id,pool)
+                    this.awsService.uploadFile(albumName, files, id, pool)
                   }, err, () => {
                     setTimeout(() => {
                       alert("Completed.!!!");
@@ -164,23 +168,17 @@ export class AdminComponent implements OnInit {
           this.disable = false;
           return false;
         } else if (singleFile) {
-          let params = {
-            Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-            Key: singleFile.name,
-            Body: singleFile,
-            ACL: 'public-read',
-          }
           s3.upload(params, (err, data) => {
             if (err) {
               alert(err)
             } else {
               setTimeout(() => {
                 info.image = data.Location
-                info.s3_image = singleFile.name;
+                info.s3_image = singleFile.name + '-Product';
                 info.id = this.snapshotId
                 this.service.editProduct(info)
                   .subscribe(res => {
-                    this.awsService.uploadFile(albumName, files, this.snapshotId,pool)
+                    this.awsService.uploadFile(albumName, files, this.snapshotId, pool)
                     console.log(res)
                   }, err, () => {
                     setTimeout(() => {
@@ -202,7 +200,7 @@ export class AdminComponent implements OnInit {
 
 
         } else if (files.length !== 0) {
-          this.awsService.uploadFile(albumName, files, this.snapshotId,pool)
+          this.awsService.uploadFile(albumName, files, this.snapshotId, pool)
           info.id = this.snapshotId
           this.disable = true
           this.service.editProduct(info)
@@ -279,7 +277,7 @@ export class AdminComponent implements OnInit {
           // start upload
           let params = {
             Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-            Key: singleFile.name,
+            Key: singleFile.name + '-Product',
             Body: singleFile,
             ACL: 'public-read',
           }
@@ -297,7 +295,7 @@ export class AdminComponent implements OnInit {
                   this.service.addProducts(info)
                     .subscribe(res => {
                       let id = res.insertId
-                      this.awsService.uploadFile(albumName, files, id,pool)
+                      this.awsService.uploadFile(albumName, files, id, pool)
                     }, err, () => {
                       setTimeout(() => {
                         alert("Completed.!!!");
