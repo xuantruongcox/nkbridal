@@ -19,16 +19,10 @@ export class AwsServiceService {
 
   }
 
-  uploadFile(albumName, files, id) {
-    let pool;
-
-    this.service.getSetting()
-      .subscribe(res => {
-
-        pool = res[0].value;
+  uploadFile(albumName, files, id,poolId) {  
         AWS.config.region = 'ap-southeast-2'
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-          IdentityPoolId: pool,
+          IdentityPoolId: poolId,
         })
         let s3 = new AWS.S3({
           apiVersion: '2006-03-01'
@@ -55,12 +49,10 @@ export class AwsServiceService {
                 .subscribe(res => {
                   console.log(res);
                 })
-              localStorage.setItem("image", data.Location)
             }
           })
 
         }
-      })
   }
   deleteFile(albumName, files) {
     let pool;
