@@ -6,12 +6,12 @@
             <!-- Product Name -->
             <div class="form-group">
                 <p class=" mb-0">Product Name:</p>
-                <input [(ngModel)]="info.name" class="input-text w-100" type="text">
+                <input [(ngModel)]="info.name" [placeholder]="editInfo.name" class="input-text w-100" type="text">
             </div>
             <!-- Price -->
             <div class="form-group">
                 <p class=" mb-0">Prices:</p>
-                <input [(ngModel)]="info.price" class="input-text w-100" type="text">
+                <input [(ngModel)]="info.price" [placeholder]="editInfo.price" class="input-text w-100" type="text">
             </div>
             <div class="form-group">
                 <p class="mb-0">Choose Product Image: </p>
@@ -26,7 +26,7 @@
             <!-- Content -->
             <div class="form-group">
                 <p>Description:</p>
-                <textarea [(ngModel)]="info.content" class="w-100" rows="5" name="desc" id="desc"></textarea>
+                <textarea [(ngModel)]="info.content" [placeholder]="editInfo.content" class="w-100" rows="5" name="desc" id="desc"></textarea>
             </div>
             <!-- Product Category -->
             <div class="form-group">
@@ -41,8 +41,11 @@
                 </div>
             </div>
             <!-- Button upload -->
-            <div class="form-group text-right">
+            <div *ngIf="!snapshotId" class="form-group text-right">
                 <button (click)="uploadImage(optionSelected=info.category,info)" aria-disabled=true class="btn btn-blue text-light" [class.disabled]="disable">Upload</button>
+            </div>
+            <div *ngIf="snapshotId" class="form-group text-right">
+                <button (click)="edit(optionSelected=info.category,info)" aria-disabled=true class="btn btn-red text-light" [class.disabled]="disable">edit</button>
             </div>
         </div>
 

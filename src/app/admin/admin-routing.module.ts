@@ -54,8 +54,12 @@ const adminRoutes: Routes = [
   {
     path: 'home/upload',
     component: AdminComponent,
-    canActivate: [AdminGuard]
-  }
+    canActivate: [AdminGuard],
+  },{
+    path: 'home/upload/:id',
+    component: AdminComponent,
+    canActivate: [AdminGuard],
+  },
 ];
 
 @NgModule({

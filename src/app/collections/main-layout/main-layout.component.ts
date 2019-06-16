@@ -9,6 +9,7 @@ import * as AWS from 'aws-sdk';
   styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent implements OnInit {
+  active = false;
   @Input() title;
   @Input() route;
   @Input() QuickView: Info;
@@ -23,6 +24,7 @@ export class MainLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.getInfo()
+
   }
 
   getInfo() {
@@ -33,7 +35,21 @@ export class MainLayoutComponent implements OnInit {
         this.collection = res;
       })
   }
-
+  activeFeature(id,status){
+    if(status == 0){
+      status = 1;
+    }else if(status == 1){
+      status = 0;
+    }
+    let _status = {
+      "id":id,
+      "featured":status
+    };
+    this.apiService.actiaveFeature(_status)
+      .subscribe(res=>{
+        console.log(res);
+      })
+  }
   deleteProduct(id: number, albumName, delSingleFile) {
     // s3_Delete
     this.apiService.getThumb(id)

@@ -33,14 +33,26 @@ export class ApiServiceService {
   addProducts(bodyParams): Observable<any> {
     return this.http.post<any>(apiUrl + ProductImg + 'add', bodyParams)
   }
+  getInfoFromId(id):Observable<any>{
+    return this.http.get<any>(apiUrl + ProductImg + 'edit/' + id)
+  }
+  editProduct(body):Observable<any>{
+    return this.http.put<any>(apiUrl + ProductImg + 'edit/',body)
+  }
   getInfo(id: any, route: any): Observable<any> {
     return this.http.get<any>(apiUrl + 'products/' + route + '/' + id);
   }
   getAllInfo(route): Observable<any> {
     return this.http.get<any>(apiUrl + 'products/' + route);
   }
+  getALL(): Observable<any> {
+    return this.http.get<any>(apiUrl + 'products/');
+  }  
   deleteProduct(id): Observable<any> {
     return this.http.delete<any>(apiUrl + ProductImg + id);
+  }
+  actiaveFeature(body):Observable<any>{
+    return this.http.put<any>(apiUrl + ProductImg + 'feature',body);
   }
   /* /.PRODUCTS API */
   /* ===================== */

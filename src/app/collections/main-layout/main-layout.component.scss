@@ -16,6 +16,7 @@
       width: 50%;
     }
   }
+
   .mt-custom {
     margin-top: 60px;
   }
@@ -32,12 +33,14 @@ select {
   .btn-group {
     box-shadow: none;
     position: absolute;
-    top: 15rem;
     margin-left: auto;
     margin-right: auto;
     width: 130px;
     left: 0px;
     right: 0px;
+    .quickview {
+      display: none;
+    }
   }
   .img {
     img {
@@ -47,8 +50,10 @@ select {
   }
 }
 .model-parent:hover {
-  .btn-group > a {
-    display: block !important;
+  .btn-group {
+    .quickview {
+      display: block !important;
+    }
   }
 }
 

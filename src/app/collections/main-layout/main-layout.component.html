@@ -13,20 +13,25 @@
     (pageChange)="p = $event">
   </pagination-controls>
   <div class="row">
-    <div *ngFor="let list of lists| paginate: { itemsPerPage: 16, currentPage: p }; let i = index"
+    <div *ngFor="let list of lists| paginate: { itemsPerPage: 16, currentPage: p }; let i = index;"
       class="col-md-4 col-lg-3 col-12 mb-3 animated">
       <div class="model-parent text-center">
-        <div class="btn-group">
+        <div class="btn-group" [style.top.rem]="(!adminIsLoggedIn) ? '15' : '10'">
           <ng-template [ngIf]="!adminIsLoggedIn">
             <a (click)="openQuickView(list.id)"
-              class="d-none btn btn-sm blue text-dark font-weight-bold animated fadeIn" data-toggle="modal"
+              class="quickview btn btn-sm blue text-dark font-weight-bold animated fadeIn" data-toggle="modal"
               data-target="#quick">QUICK VIEW</a>
           </ng-template>
 
           <ng-template [ngIf]="adminIsLoggedIn">
             <div class="btn-admin">
-              <a [routerLink]="['/home/upload']"
-                class="btn blue text-dark font-weight-bold animated fadeIn mb-3">Edit</a>
+              <div style="cursor: default" class="btn btn-sm font-sm blue">
+                <input class="checkbox" type="checkbox" (click)="activeFeature(list.id,list.featured)"
+                  [checked]="list.featured == 1">
+                <span>Show to Feature</span>
+              </div>
+              <a routerLink="/home/upload/{{list.id}}"
+                class="btn blue text-dark font-weight-bold animated fadeIn my-3">Edit</a>
               <a (click)="deleteProduct(list.id,list.category,list.s3_image);"
                 class="btn blue text-dark font-weight-bold animated fadeIn">DELETE</a>
             </div>

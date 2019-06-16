@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   routeFormal = 'formal';
   thumbImg;
   ngOnInit() {
-    this.getFormal();
+    this.showFeature();
     // ==================
     // ==================
     this.getShowCategories();
@@ -39,8 +39,8 @@ export class HomeComponent implements OnInit {
   }
   constructor(private service: ApiServiceService, private adminControls: AuthService) {
   }
-  getFormal() {
-    this.service.getAllInfo(this.routeFormal)
+  showFeature() {
+    this.service.getALL()
       .subscribe(res => {
         this.sectionSlides = res;
 
