@@ -14,15 +14,14 @@
   </pagination-controls>
   <div class="row">
     <div *ngFor="let list of lists| paginate: { itemsPerPage: 16, currentPage: p }; let i = index;"
-      class="col-md-4 col-lg-3 col-12 mb-3 animated">
+      class="col-12 mb-3 {{get[i].clientWidth > get[i].clientHeight ? 'col-lg-9 col-md-12':'col-lg-3 col-md-4'}} animated">
       <div class="model-parent text-center">
-        <div class="btn-group" [style.top.rem]="(!adminIsLoggedIn) ? '15' : '10'">
+        <div class="btn-group" [style.top.rem]="(!adminIsLoggedIn) ? '15' : '8'">
           <ng-template [ngIf]="!adminIsLoggedIn">
             <a (click)="openQuickView(list.id)"
               class="quickview btn btn-sm blue text-dark font-weight-bold animated fadeIn" data-toggle="modal"
               data-target="#quick">QUICK VIEW</a>
           </ng-template>
-
           <ng-template [ngIf]="adminIsLoggedIn">
             <div class="btn-admin">
               <div style="cursor: default" class="btn btn-sm font-sm blue">
@@ -39,7 +38,7 @@
           </ng-template>
         </div>
         <div class="img">
-          <img routerLink="/products/{{route | lowercase}}/{{list.id}}" class="img-fluid" [src]="list.image" alt="">
+          <img routerLink="/products/{{route | lowercase}}/{{list.id}}" class="image-responsive" [src]="list.image" alt="">
         </div>
       </div>
       <p class="font-weight-bold mt-2 mb-0">{{list.name}}</p>

@@ -17,7 +17,7 @@
               <!--First slide-->
               <div *ngFor="let thum of thumb;let i = index" class="carousel-item d-flex justify-content-center"
                 [class.active]="i == 0 ? true : false">
-                <img class="d-block fixed rounded animated fadeIn" style="border: solid white 5px" [src]="thum.image"
+                <img class="d-block fixed rounded animated fadeIn {{(get[i].clientWidth > get[i].clientHeight)? 'w-100 h-auto':''}}" style="border: solid white 5px" [src]="thum.image"
                   alt="First slide">
               </div>
 

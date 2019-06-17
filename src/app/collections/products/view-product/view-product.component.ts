@@ -11,10 +11,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ViewProductComponent implements OnInit {
   @Input() info: Info;
   thumb;
+  get;
   constructor(private route: ActivatedRoute,private service: ApiServiceService) { }
 
   ngOnInit() {
     this.getThumb();
+
+    // 
+    this.get = document.getElementsByClassName('image-indicator')
   }
 
   getThumb() {

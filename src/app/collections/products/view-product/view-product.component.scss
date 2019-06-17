@@ -1,4 +1,8 @@
-@media only screen and(min-width: 768px) {
+@media only screen and(max-width: 768px) {
+  .fixed {
+    width: 100%;
+    height: auto !important;
+  }
 }
 
 .carousel-indicators {
@@ -18,7 +22,6 @@
 
 .fixed {
   height: 35rem;
-  width: 24rem;
 }
 .white-space-prewrap{
   word-wrap: break-word;

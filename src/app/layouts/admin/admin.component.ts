@@ -138,9 +138,9 @@ export class AdminComponent implements OnInit {
                   .subscribe(res => {
                     let id = this.snapshotId
                     this.awsService.uploadFile(albumName, files, id, pool)
+                    console.log('Response Edit:',res)
                   }, err, () => {
                     setTimeout(() => {
-                      alert("Completed.!!!");
                       info = [
                         info.name = null,
                         info.price = null,
@@ -149,10 +149,11 @@ export class AdminComponent implements OnInit {
                         fileInputSingle.value = "",
                         info.category = null,
                       ];
+                      alert("Completed.!!!");
                       this.disable = false;
-                    }, 100)
+                    }, 1000)
                   })
-              }, 100)
+              }, 200)
             }
           })
         }
@@ -168,6 +169,7 @@ export class AdminComponent implements OnInit {
           this.disable = false;
           return false;
         } else if (singleFile) {
+          this.disable = true;
           s3.upload(params, (err, data) => {
             if (err) {
               alert(err)
@@ -178,11 +180,9 @@ export class AdminComponent implements OnInit {
                 info.id = this.snapshotId
                 this.service.editProduct(info)
                   .subscribe(res => {
-                    this.awsService.uploadFile(albumName, files, this.snapshotId, pool)
-                    console.log(res)
+                    console.log('Response Edit:',res)
                   }, err, () => {
                     setTimeout(() => {
-                      alert("Completed.!!!");
                       info = [
                         info.name = null,
                         info.price = null,
@@ -191,8 +191,9 @@ export class AdminComponent implements OnInit {
                         fileInputSingle.value = "",
                         info.category = null,
                       ];
+                      alert("Completed.!!!");
                       this.disable = false;
-                    }, 100)
+                    }, 1000)
                   })
               }, 100)
             }
@@ -206,7 +207,7 @@ export class AdminComponent implements OnInit {
           this.service.editProduct(info)
             .subscribe(res => {
 
-              console.log(res)
+              console.log('Response Edit:',res)
             }, null, () => {
               setTimeout(() => {
                 alert("Completed.!!!");
@@ -229,10 +230,10 @@ export class AdminComponent implements OnInit {
         this.disable = true
         this.service.editProduct(info)
           .subscribe(res => {
-            console.log(res)
+            console.log('Response Edit:',res)
+
           }, null, () => {
             setTimeout(() => {
-              alert("Completed.!!!");
               info = [
                 info.name = null,
                 info.price = null,
@@ -241,6 +242,7 @@ export class AdminComponent implements OnInit {
                 fileInputSingle.value = "",
                 info.category = null,
               ];
+              alert("Completed.!!!");
               this.disable = false;
             }, 100)
           })

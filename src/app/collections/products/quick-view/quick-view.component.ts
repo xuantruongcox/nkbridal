@@ -10,8 +10,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class QuickViewComponent implements OnInit {
   @Input() info: Info;
   @Input() thumbImg;
+  get;
   constructor(private service: ApiServiceService) { }
 
   ngOnInit() {
+    this.get = document.getElementsByClassName('image-indicator')
+
   }
 }

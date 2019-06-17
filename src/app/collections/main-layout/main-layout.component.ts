@@ -1,6 +1,6 @@
 import { AwsServiceService } from './../../services/aws-service.service';
 import { ApiServiceService } from './../../services/api-service.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Info } from '../info-property';
 import * as AWS from 'aws-sdk';
 @Component({
@@ -20,12 +20,17 @@ export class MainLayoutComponent implements OnInit {
   @Input() fadeOut = false;
   @Input() p: number = 1;
   @Input() collection: any[];
+  responsive: boolean = false;
+  get;
   constructor(private apiService: ApiServiceService, private awsService: AwsServiceService) { }
 
   ngOnInit() {
     this.getInfo()
+    /* Responsive image */
+    this.get = document.getElementsByClassName('image-responsive')
 
   }
+
 
   getInfo() {
 
@@ -33,20 +38,22 @@ export class MainLayoutComponent implements OnInit {
       .subscribe(res => {
         this.lists = res;
         this.collection = res;
+
+
       })
   }
-  activeFeature(id,status){
-    if(status == 0){
+  activeFeature(id, status) {
+    if (status == 0) {
       status = 1;
-    }else if(status == 1){
+    } else if (status == 1) {
       status = 0;
     }
     let _status = {
-      "id":id,
-      "featured":status
+      "id": id,
+      "featured": status
     };
     this.apiService.actiaveFeature(_status)
-      .subscribe(res=>{
+      .subscribe(res => {
         console.log(res);
       })
   }

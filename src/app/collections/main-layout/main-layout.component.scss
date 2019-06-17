@@ -6,7 +6,15 @@
     height: auto !important;
   }
 }
-
+@media only screen and(max-width:1200px){
+  .model-parent {
+    .img {
+      img {
+        height: 310px !important;
+      }
+    }
+  }
+}
 @media only screen and(max-width: 768px) {
   .custom-select {
     width: auto;
@@ -19,6 +27,20 @@
 
   .mt-custom {
     margin-top: 60px;
+  }
+
+  .model-parent {
+    .btn-group{
+      top: 20rem;
+    }
+    .img {
+      img {
+        border-radius: 5px;
+        height: auto !important;
+        width: 100%;
+        border: solid black 1px;
+      }
+    }
   }
 }
 select {
@@ -35,7 +57,7 @@ select {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    width: 130px;
+    width: 100px;
     left: 0px;
     right: 0px;
     .quickview {
@@ -45,7 +67,8 @@ select {
   .img {
     img {
       border-radius: 5px;
-      height: 350px;
+      height: 355px;
+      border: solid black 1px;
     }
   }
 }
