@@ -105,12 +105,15 @@ export class AdminComponent implements OnInit {
     /* UPDATE */
     let params;
     if (singleFile) {
-      params = {
-        Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-        Key: 'Product-'+info.name,
-        Body: singleFile,
-        ACL: 'public-read',
-      }
+      this.service.getInfoFromId(this.snapshotId)
+        .subscribe(res => {
+          params = {
+            Bucket: 'nkbridal-data' + `/${albumName}-Album`,
+            Key: 'Product-' + res[0].name,
+            Body: singleFile,
+            ACL: 'public-read',
+          }
+        })
     }
     setTimeout(() => {
       if (singleFile !== undefined && files.length !== 0) {
@@ -133,12 +136,12 @@ export class AdminComponent implements OnInit {
               setTimeout(() => {
                 info.id = this.snapshotId;
                 info.image = data.Location
-                info.s3_image = 'Product-'+info.name;
+                info.s3_image = params.Key;
                 this.service.editProduct(info)
                   .subscribe(res => {
                     let id = this.snapshotId
                     this.awsService.uploadFile(albumName, files, id, pool)
-                    console.log('Response Edit:',res)
+                    console.log('Response Edit:', res)
                   }, err, () => {
                     setTimeout(() => {
                       info = [
@@ -176,11 +179,11 @@ export class AdminComponent implements OnInit {
             } else {
               setTimeout(() => {
                 info.image = data.Location
-                info.s3_image = 'Product-'+info.name;
+                info.s3_image = params.Key;
                 info.id = this.snapshotId
                 this.service.editProduct(info)
                   .subscribe(res => {
-                    console.log('Response Edit:',res)
+                    console.log('Response Edit:', res)
                   }, err, () => {
                     setTimeout(() => {
                       info = [
@@ -207,7 +210,7 @@ export class AdminComponent implements OnInit {
           this.service.editProduct(info)
             .subscribe(res => {
 
-              console.log('Response Edit:',res)
+              console.log('Response Edit:', res)
             }, null, () => {
               setTimeout(() => {
                 alert("Completed.!!!");
@@ -230,7 +233,7 @@ export class AdminComponent implements OnInit {
         this.disable = true
         this.service.editProduct(info)
           .subscribe(res => {
-            console.log('Response Edit:',res)
+            console.log('Response Edit:', res)
 
           }, null, () => {
             setTimeout(() => {
@@ -279,7 +282,7 @@ export class AdminComponent implements OnInit {
           // start upload
           let params = {
             Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-            Key: 'Product-'+ info.name,
+            Key: 'Product-' + info.name,
             Body: singleFile,
             ACL: 'public-read',
           }
@@ -293,7 +296,7 @@ export class AdminComponent implements OnInit {
               } else {
                 setTimeout(() => {
                   info.image = data.Location
-                  info.s3_image = 'Product-'+info.name.name;
+                  info.s3_image = 'Product-' + info.name;
                   this.service.addProducts(info)
                     .subscribe(res => {
                       let id = res.insertId
