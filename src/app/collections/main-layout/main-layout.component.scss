@@ -15,6 +15,7 @@
     }
   }
 }
+
 @media only screen and(max-width: 768px) {
   .custom-select {
     width: auto;
@@ -28,10 +29,10 @@
   .mt-custom {
     margin-top: 60px;
   }
-
   .model-parent {
     .btn-group{
-      top: 20rem;
+      top: auto !important;
+      bottom: 50px;
     }
     .img {
       img {
@@ -60,9 +61,7 @@ select {
     width: 100px;
     left: 0px;
     right: 0px;
-    .quickview {
-      display: none;
-    }
+  
   }
   .img {
     img {

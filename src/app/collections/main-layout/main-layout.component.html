@@ -19,7 +19,7 @@
         <div class="btn-group" [style.top.rem]="(!adminIsLoggedIn) ? '15' : '8'">
           <ng-template [ngIf]="!adminIsLoggedIn">
             <a (click)="openQuickView(list.id)"
-              class="quickview btn btn-sm blue text-dark font-weight-bold animated fadeIn" data-toggle="modal"
+              class="quickview d-none btn btn-sm blue text-dark font-weight-bold animated fadeIn" data-toggle="modal"
               data-target="#quick">QUICK VIEW</a>
           </ng-template>
           <ng-template [ngIf]="adminIsLoggedIn">
