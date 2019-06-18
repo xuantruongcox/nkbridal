@@ -107,7 +107,7 @@ export class AdminComponent implements OnInit {
     if (singleFile) {
       params = {
         Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-        Key: singleFile.name + '-Product',
+        Key: 'Product-'+info.name,
         Body: singleFile,
         ACL: 'public-read',
       }
@@ -133,7 +133,7 @@ export class AdminComponent implements OnInit {
               setTimeout(() => {
                 info.id = this.snapshotId;
                 info.image = data.Location
-                info.s3_image = singleFile.name + '-Product';
+                info.s3_image = 'Product-'+info.name;
                 this.service.editProduct(info)
                   .subscribe(res => {
                     let id = this.snapshotId
@@ -176,7 +176,7 @@ export class AdminComponent implements OnInit {
             } else {
               setTimeout(() => {
                 info.image = data.Location
-                info.s3_image = singleFile.name + '-Product';
+                info.s3_image = 'Product-'+info.name;
                 info.id = this.snapshotId
                 this.service.editProduct(info)
                   .subscribe(res => {
@@ -279,7 +279,7 @@ export class AdminComponent implements OnInit {
           // start upload
           let params = {
             Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-            Key: singleFile.name + '-Product',
+            Key: 'Product-'+ info.name,
             Body: singleFile,
             ACL: 'public-read',
           }
@@ -293,7 +293,7 @@ export class AdminComponent implements OnInit {
               } else {
                 setTimeout(() => {
                   info.image = data.Location
-                  info.s3_image = singleFile.name;
+                  info.s3_image = 'Product-'+info.name.name;
                   this.service.addProducts(info)
                     .subscribe(res => {
                       let id = res.insertId

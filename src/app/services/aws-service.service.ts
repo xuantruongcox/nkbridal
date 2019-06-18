@@ -32,7 +32,7 @@ export class AwsServiceService {
         for (let i = 0; i < files.length; i++) {
           let params = {
             Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-            Key: files[i].name,
+            Key: 'Thumbnail-'+files[i].name,
             Body: files[i],
             ACL: 'public-read',
           }
