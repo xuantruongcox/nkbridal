@@ -107,9 +107,15 @@ export class AdminComponent implements OnInit {
     if (singleFile) {
       this.service.getInfoFromId(this.snapshotId)
         .subscribe(res => {
+          let name;
+          if (info.name) {
+            name = info.name;
+          } else {
+            name = res[0].name
+          }
           params = {
             Bucket: 'nkbridal-data' + `/${albumName}-Album`,
-            Key: 'Product-' + res[0].name,
+            Key: 'Product-' + name,
             Body: singleFile,
             ACL: 'public-read',
           }
@@ -133,14 +139,15 @@ export class AdminComponent implements OnInit {
             if (err) {
               alert(err)
             } else {
+              let id = this.snapshotId
+              this.awsService.uploadFile(albumName, files, id, pool)
               setTimeout(() => {
                 info.id = this.snapshotId;
                 info.image = data.Location
                 info.s3_image = params.Key;
                 this.service.editProduct(info)
                   .subscribe(res => {
-                    let id = this.snapshotId
-                    this.awsService.uploadFile(albumName, files, id, pool)
+
                     console.log('Response Edit:', res)
                   }, err, () => {
                     setTimeout(() => {
@@ -156,7 +163,7 @@ export class AdminComponent implements OnInit {
                       this.disable = false;
                     }, 1000)
                   })
-              }, 200)
+              }, 1000)
             }
           })
         }
