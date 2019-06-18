@@ -93,12 +93,11 @@ export class AdminComponent implements OnInit {
             this.awsService.deleteFile(albumName, res[i].s3_image)
             console.log(res[i].s3_image)
           }
-          setTimeout(() => {
-            this.service.deleteThumbnail(this.snapshotId)
-              .subscribe(res => {
-                console.log(res)
-              })
-          }, 700)
+
+        })
+      this.service.deleteThumbnail(this.snapshotId)
+        .subscribe(res => {
+          console.log(res)
         })
     }
     /* /.DELTE IMAGE BEFORE UPDATE */
@@ -211,12 +210,11 @@ export class AdminComponent implements OnInit {
 
 
         } else if (files.length !== 0) {
-          this.awsService.uploadFile(albumName, files, this.snapshotId, pool)
           info.id = this.snapshotId
           this.disable = true
           this.service.editProduct(info)
             .subscribe(res => {
-
+              this.awsService.uploadFile(albumName, files, this.snapshotId, pool)
               console.log('Response Edit:', res)
             }, null, () => {
               setTimeout(() => {
