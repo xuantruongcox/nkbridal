@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./quick-view.component.scss']
 })
 export class QuickViewComponent implements OnInit {
-  @Input() info: Info;
+  @Input() info = new Info;
   @Input() thumbImg;
   get;
   constructor(private service: ApiServiceService) { }

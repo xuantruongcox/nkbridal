@@ -47,10 +47,8 @@ export class HomeComponent implements OnInit {
       })
   }
   openQuickView(id) {
-    this.service.getInfo(id, this.routeFormal)
-      .subscribe(res => {
-        this.quickView = res;
-      })
+    this.service.getInfoFromId(id)
+      .subscribe(res => this.quickView = res)
     this.service.getThumb(id)
       .subscribe(res => this.thumbImg = res)
   }

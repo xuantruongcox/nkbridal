@@ -55,7 +55,7 @@
 
       <div class="col-12">
         <owl-carousel-o [options]="customOptions">
-          <ng-container *ngFor="let slide of sectionSlides">
+          <div *ngFor="let slide of sectionSlides">
             <ng-template *ngIf="slide.featured == 1" carouselSlide [id]="slide.id">
               <div class="container">
                 <div class="slide">
@@ -64,15 +64,15 @@
 
                     <div class="card-body text-center">
                       <h5 style="font-size: 13pt;" class="w-100 font-weight-bold card-title">{{slide.name}}</h5>
-                      <a (click)="openQuickView(slide.id)" data-target="#quick" data-toggle="modal"
-                        class="btn btn-hover blue text-light animated fadeIn">QUICK VIEW</a>
+                      <button (click)="openQuickView(slide.id)" data-target="#quick" data-toggle="modal"
+                        class="btn btn-hover blue text-light animated fadeIn">QUICK VIEW</button>
                     </div>
                   </div>
                 </div>
               </div>
 
             </ng-template>
-          </ng-container>
+          </div>
 
         </owl-carousel-o>
 
