@@ -27,7 +27,7 @@ import 'aws-sdk';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {NgxPaginationModule} from 'ngx-pagination';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { ViewProductComponent } from '../collections/products/view-product/view-product.component';
 import { QuickViewComponent } from '../collections/products/quick-view/quick-view.component';
 import { RealPeopleComponent } from '../collections/real-people/real-people.component';
@@ -70,6 +70,7 @@ import { RealPeopleProductComponent } from '../collections/products/real-people-
     MDBBootstrapModule,
     DropdownModule,
     NgxPaginationModule,
+    HttpClientJsonpModule
   ]
 })
 export class AdminModule { }
