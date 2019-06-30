@@ -12,7 +12,7 @@
   <pagination-controls class="pagination animated fadeIn" autoHide=true responsive=true nextLabel="" previousLabel=""
     (pageChange)="p = $event">
   </pagination-controls>
-  <div class="row">
+  <div *ngIf="get" class="row">
     <div *ngFor="let list of lists| paginate: { itemsPerPage: 16, currentPage: p }; let i = index;"
       class="col-12 mb-3 {{get[i].clientWidth > get[i].clientHeight ? 'col-lg-9 col-md-12':'col-lg-3 col-md-4'}} animated">
       <div class="model-parent text-center">
