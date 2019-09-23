@@ -36,13 +36,20 @@ const adminRoutes: Routes = [
     path: 'contact-us', component: ContactUsComponent
   },
   {
-    path: 'collections', component: MainCollectionsComponent
+    path: 'collections',
+    children: [
+      {
+        path: '',
+        component: MainCollectionsComponent,
+      },
+      { path: 'wedding', component: WeddingDressesComponent },
+      { path: 'formal', component: PromFormalDressComponent },
+      { path: 'bridesmaid', component: BridesmaidDressComponent },
+      { path: 'special-offers', component: UncategorisedComponent },
+      { path: 'rprs', component: RealPeopleComponent },
+    ]
   },
-  { path: 'collections/wedding', component: WeddingDressesComponent },
-  { path: 'collections/formal', component: PromFormalDressComponent },
-  { path: 'collections/bridesmaid', component: BridesmaidDressComponent },
-  { path: 'collections/special-offers', component: UncategorisedComponent },
-  {path: 'collections/rprs', component: RealPeopleComponent},
+
   {
     path: 'products', component: MainCollectionsComponent
   },
@@ -50,12 +57,12 @@ const adminRoutes: Routes = [
   { path: 'products/formal/:id', component: ObjectComponent },
   { path: 'products/wedding/:id', component: WeddingDressesProductComponent },
   { path: 'products/bridesmaid/:id', component: BridesmaidProductComponent },
-  {path: 'products/rprs/:id', component: RealPeopleProductComponent},
+  { path: 'products/rprs/:id', component: RealPeopleProductComponent },
   {
     path: 'home/upload',
     component: AdminComponent,
     canActivate: [AdminGuard],
-  },{
+  }, {
     path: 'home/upload/:id',
     component: AdminComponent,
     canActivate: [AdminGuard],

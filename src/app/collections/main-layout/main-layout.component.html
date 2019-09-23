@@ -7,6 +7,9 @@
 </div>
 <!--  -->
 
+<div class="container d-flex justify-content-center">
+  <img *ngIf="loading" src="/assets/img-process/loading.gif" alt="">
+</div>
 
 <div class="container text-center mt-2 mb-4">
   <pagination-controls class="pagination animated fadeIn" autoHide=true responsive=true nextLabel="" previousLabel=""
@@ -14,7 +17,8 @@
   </pagination-controls>
   <div *ngIf="get" class="row">
     <div *ngFor="let list of lists| paginate: { itemsPerPage: 16, currentPage: p }; let i = index;"
-      class="col-12 mb-3 {{get[i].clientWidth > get[i].clientHeight ? 'col-lg-9 col-md-12':'col-lg-3 col-md-4'}} animated">
+      [ngClass]="{'col-lg-9 col-md-12':  (get[i].clientWidth > get[i].clientHeight) ? true : false, 'col-lg-3 col-md-4': (get[i].clientHeight > get[i].clientWidth) ? true : false}"
+      class="col-12 mb-3 animated">
       <div class="model-parent text-center">
         <div class="btn-group" [style.top.rem]="(!adminIsLoggedIn) ? '15' : '8'">
           <ng-template [ngIf]="!adminIsLoggedIn">
@@ -38,7 +42,8 @@
           </ng-template>
         </div>
         <div class="img">
-          <img routerLink="/products/{{route | lowercase}}/{{list.id}}" class="image-responsive" [src]="list.image" alt="">
+          <img routerLink="/products/{{route | lowercase}}/{{list.id}}" class="image-responsive" [src]="list.image"
+            alt="">
         </div>
       </div>
       <p class="font-weight-bold mt-2 mb-0">{{list.name}}</p>

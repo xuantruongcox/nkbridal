@@ -3,7 +3,10 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const apiUrl = 'http://node-nkbridal.ap-southeast-1.elasticbeanstalk.com/api/';
+
+
+
+const apiUrl = 'https://api.nkbridal.com/api/';
 const ProductImg = 'products/';
 const thumbnailImg = 'thumbnail/';
 const slideAPI = 'slide/';
@@ -22,7 +25,8 @@ export class ApiServiceService {
     return this.http.post<any>(apiUrl + thumbnailImg + 'add', bodyParams)
   }
   getThumb(id_product): Observable<any> {
-    return this.http.get<any>(apiUrl + thumbnailImg + id_product);
+    return this.http.get<any>(apiUrl + thumbnailImg + id_product)
+      .pipe();
   }
   deleteThumbnail(id): Observable<any> {
     return this.http.delete<any>(apiUrl + thumbnailImg + id);

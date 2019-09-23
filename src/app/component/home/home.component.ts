@@ -1,14 +1,14 @@
 import { AuthService } from './../../auth/auth.service';
 import { Info } from './../../collections/info-property';
 import { ApiServiceService } from './../../services/api-service.service';
-import { SECTIONSLIDE } from './../../collections/mock-list';
-import { SECTIONMODEL, SECTIONSTYLE } from 'src/app/collections/mock-list';
+// import { SECTIONSLIDE } from './../../collections/mock-list';
+// import { SECTIONMODEL, SECTIONSTYLE } from 'src/app/collections/mock-list';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import 'bootstrap'
-import { NguCarouselConfig } from '@ngu/carousel';
-import { NguButton, CarouselInterval, Transfrom } from '@ngu/carousel/lib/ngu-carousel/ngu-carousel';
+import { NguCarouselConfig, NguCarousel } from '@ngu/carousel';
+import { NguButton, CarouselInterval, Transfrom, NguCarouselStore } from '@ngu/carousel/lib/ngu-carousel/ngu-carousel';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-home',
@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   sectionStyles;
   sectionSlides: Info[];
   sectionEnd;
-
   quickView: Info[];
   routeFormal = 'formal';
   thumbImg;
@@ -64,11 +63,11 @@ export class HomeComponent implements OnInit {
     navSpeed: 500,
     navText: ['<a class="carousel-control-prev text-dark mb-5 fas fa-angle-left fa-2x"></a>', '<a class="carousel-control-next text-dark mb-5 fas fa-angle-right fa-2x"></a>'],
     responsive: {
-      0: {
-        items: 1,
-      },
       1024: {
-        items: 3
+        items: 5,
+      },
+      768:{
+        items: 4
       }
     },
     nav: true
@@ -89,5 +88,8 @@ export class HomeComponent implements OnInit {
         this.sectionEnd = res[0]
       })
   }
+
+  /* ------------------------------- */
+
 }
 

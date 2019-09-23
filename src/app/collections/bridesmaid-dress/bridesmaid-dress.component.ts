@@ -3,7 +3,7 @@ import { ApiServiceService } from './../../services/api-service.service';
 import { ListService } from './../../list.service';
 import { Info } from './../info-property';
 import { Component, OnInit } from '@angular/core';
-import { BRIDESMAIDS } from '../mock-list';
+// import { BRIDESMAIDS } from '../mock-list';
 
 @Component({
   selector: 'app-bridesmaid-dress',

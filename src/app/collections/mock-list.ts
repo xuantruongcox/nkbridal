@@ -1,9 +1,9 @@
-import { Info, MainCollections, Introduce } from './info-property';
+/* import { Info, MainCollections, Introduce } from './info-property';
 export const FORMAL: Info[] = [
     {
         id: 1,
         name: 'Chiara-black-tulle-V-neck-strapless-dress',
-        img: 'https://scontent.fsgn4-1.fna.fbcdn.net/v/t1.15752-9/61629613_829510620767546_71866893195018240_n.jpg?_nc_cat=101&_nc_oc=AQnVSfVLh3J27PuUkYuIXrr0xJkE4is45dB72r14SQJ1D-n-FKBlNyBRKwmYap-TnfBwjkugbYXMwUu215p8oUxM&_nc_ht=scontent.fsgn4-1.fna&oh=ead1a42d3abcf4060bf8af4499df31dd&oe=5D9929B6',
+        image: 'https://scontent.fsgn4-1.fna.fbcdn.net/v/t1.15752-9/61629613_829510620767546_71866893195018240_n.jpg?_nc_cat=101&_nc_oc=AQnVSfVLh3J27PuUkYuIXrr0xJkE4is45dB72r14SQJ1D-n-FKBlNyBRKwmYap-TnfBwjkugbYXMwUu215p8oUxM&_nc_ht=scontent.fsgn4-1.fna&oh=ead1a42d3abcf4060bf8af4499df31dd&oe=5D9929B6',
         price: 900,
         imgThumb:[''],
         content:'asdsadsadsadsadsadsad',
@@ -62,4 +62,4 @@ export const SECTIONSLIDE: Info[] = [
     { id: 4, name: 'CommingSoon', img: 'https://scontent.fsgn4-1.fna.fbcdn.net/v/t1.15752-9/61368587_2399114710150620_4733017865286844416_n.jpg?_nc_cat=101&_nc_oc=AQmeQaUutstpWpyPTNod-TYJ__fCsp516eKp4DB3QlPXQUvkczoNdpWuIVuDkYkSaJT7_-QMoMAnfpqOaDYrsNrb&_nc_ht=scontent.fsgn4-1.fna&oh=4aa4dd9737dfe606b33a6cd54ed81136&oe=5D5F2E3F', price: null, imgThumb: null,content: null,category: null },
     { id: 5, name: 'CommingSoon', img: 'https://scontent.fsgn4-1.fna.fbcdn.net/v/t1.15752-9/61545848_1561064377361020_3749342866988597248_n.jpg?_nc_cat=101&_nc_oc=AQmexrrv1SrSkOwUvKokz8kWwFCDb3CWgGIhAxjfNe0kw9xmg27TrPbLjpLXpaBxyYyRD-f02skcdEn_iAZ_7ONP&_nc_ht=scontent.fsgn4-1.fna&oh=6d57300f205bac890b86674f2a9729fa&oe=5D8CD1AF', price: null, imgThumb: null,content: null,category: null },
 
-]
+] */

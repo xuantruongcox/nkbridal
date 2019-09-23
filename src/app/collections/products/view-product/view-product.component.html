@@ -16,9 +16,11 @@
             <div class="carousel-inner" role="listbox">
               <!--First slide-->
               <div *ngFor="let thum of thumb;let i = index" class="carousel-item d-flex justify-content-center"
-                [class.active]="i == 0 ? true : false">
-                <img class="d-block fixed rounded animated fadeIn {{(get[i].clientWidth > get[i].clientHeight)? 'w-100 h-auto':''}}" style="border: solid white 5px" [src]="thum.image"
-                  alt="First slide">
+                [ngClass]="{'active': i===0}">
+                <img
+                  class="d-block fixed rounded animated fadeIn"
+                  [ngClass]="{'w-100 h-auto': get[i].clientWidth > get[i].clientHeight}"
+                  style="border: solid white 5px" [src]="thum.image" alt="First slide">
               </div>
 
               <!--/Third slide-->
@@ -66,7 +68,7 @@
               <a target="_blank" href="https://instagram.com/nkbridalaustralia" class="text-dark px-3">
                 <i style="cursor: pointer" class="fab fa-instagram fa-2x"></i>
               </a>
-             
+
             </div>
           </div>
         </div>

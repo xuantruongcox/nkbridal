@@ -2,7 +2,7 @@ import { AuthService } from './../../auth/auth.service';
 import { ApiServiceService } from './../../services/api-service.service';
 import { Info } from './../info-property';
 import { Component, OnInit } from '@angular/core';
-import { WEDDING } from '../mock-list';
+// import { WEDDING } from '../mock-list';
 import { ListService } from 'src/app/list.service';
 
 @Component({

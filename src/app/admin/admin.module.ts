@@ -24,7 +24,8 @@ import { WeddingDressesProductComponent } from '../collections/products/wedding-
 import { BridesmaidProductComponent } from '../collections/products/bridesmaid-product/bridesmaid-product.component';
 import {MDBBootstrapModule, DropdownModule} from 'angular-bootstrap-md';
 import 'aws-sdk';
-import {CarouselModule} from 'ngx-owl-carousel-o';
+// import {CarouselModule} from 'ngx-owl-carousel-o';
+import {CarouselModule} from 'ngx-owl-carousel-o'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
@@ -33,6 +34,7 @@ import { QuickViewComponent } from '../collections/products/quick-view/quick-vie
 import { RealPeopleComponent } from '../collections/real-people/real-people.component';
 import { RouterModule } from '@angular/router';
 import { RealPeopleProductComponent } from '../collections/products/real-people-product/real-people-product.component';
+import { NguCarouselModule } from '@ngu/carousel';
 @NgModule({
   declarations: [
     ObjectComponent,

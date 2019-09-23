@@ -3,6 +3,7 @@ import { ApiServiceService } from './../../services/api-service.service';
 import { Component, OnInit, Input, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Info } from '../info-property';
 import * as AWS from 'aws-sdk';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
@@ -14,15 +15,29 @@ export class MainLayoutComponent implements OnInit {
   @Input() route;
   @Input() QuickView: Info;
   @Input() id;
-  @Input() lists: Info[];
+  @Input() lists: Array<Info>[] = [];
   @Input() thumbImg;
   @Input() adminIsLoggedIn = false;
   @Input() fadeOut = false;
   @Input() p: number = 1;
   @Input() collection: any[];
+  list: Array<Info> = [
+    {
+      id: 0,
+      name: '',
+      category: '',
+      image: '/assets/img-process/loading.gif',
+      price: 0,
+      content: '',
+      imgThumb: '/assets/img-process/loading.gif'
+
+    }
+  ];
   responsive: boolean = false;
   get;
-  constructor(private apiService: ApiServiceService, private awsService: AwsServiceService) { }
+  constructor(
+    private httpClient: HttpClient,
+    private apiService: ApiServiceService, private awsService: AwsServiceService) { }
 
   ngOnInit() {
     this.getInfo()
@@ -31,14 +46,16 @@ export class MainLayoutComponent implements OnInit {
 
   }
 
-
+  loading = false;
   getInfo() {
-
+    this.loading = true
     this.apiService.getAllInfo(this.route)
       .subscribe(res => {
-        this.lists = res;
+        setTimeout(() => {
+          this.loading = false;
+          this.lists = res;
+        }, 2000)
         this.collection = res;
-
 
       })
   }

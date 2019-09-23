@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MAINCOLLECTIONS } from '../mock-list';
+// import { MAINCOLLECTIONS } from '../mock-list';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-collections.component.scss']
 })
 export class MainCollectionsComponent implements OnInit {
-  lists = MAINCOLLECTIONS;
+  // lists = MAINCOLLECTIONS;
+  lists;
   constructor(private route: Router) { }
 
   ngOnInit() {

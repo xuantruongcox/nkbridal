@@ -1,9 +1,9 @@
 export class Info {
     id: number;
     name: string;
-    img: string;
+    image: string;
     price: number;
-    imgThumb: string[];
+    imgThumb: string;
     content: string;
     category: string;
 }
